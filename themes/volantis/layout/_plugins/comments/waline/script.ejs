@@ -1,0 +1,44 @@
+<script>
+  volantis.layoutHelper("comments",`<div id="waline"><i class="fa-solid fa-cog fa-spin fa-fw fa-2x"></i></div>`)
+  function pjax_waline() {
+    if(!document.querySelector("#waline"))return;
+    let pagePlaceholder = pdata.commentPlaceholder || "<%= theme.comments.waline.placeholder %>";
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '<%= theme.comments.waline.path %>';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+    new Waline(Object.assign(Object.assign(<%- JSON.stringify(theme.comments.waline) %>, {
+      el: '#waline',
+      path: path,
+      placeholder: pagePlaceholder,
+      
+      // https://github.com/volantis-x/hexo-theme-volantis/issues/713
+      <% if(theme.comments.waline.imageHosting){ %>
+        uploadImage: function(file) {
+          const formData = new FormData();
+          formData.append('image', file);
+          return fetch('<%= theme.comments.waline.imageHosting %>', {
+            method: 'POST',
+          body: formData
+          }).then(resp => resp.json()).then(resp => resp.data.url);
+        }
+      <% } %>
+  
+  }),pdata.commentConfig));
+    fancybox_waline()
+  }
+  function fancybox_waline() {
+    if(typeof VolantisFancyBox === "undefined") {
+      const checkFancyBox = setInterval(() => {
+        if(typeof VolantisFancyBox === "undefined") return;
+        clearInterval(checkFancyBox);
+        VolantisFancyBox.bind('#waline .vcontent img:not(.vemoji)');
+      })
+    } else {
+      VolantisFancyBox.bind('#waline .vcontent img:not(.vemoji)');
+    }
+  }
+  volantis.js('<%- theme.comments.waline.js %>').then(pjax_waline)
+  volantis.pjax.push(pjax_waline);
+</script>
