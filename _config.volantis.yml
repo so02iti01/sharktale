@@ -62,12 +62,12 @@ navbar:
     - name: 标签
       icon: fa-solid fa-tags
       url: /tags/ 
-    - name: 分类
+    - name: 归档
       icon: fas fa-archive
       url: /categories/
     - name: 虫洞
       icon: fa-solid fa-link
-      url:  /remotelinks/
+      url:  /friends/
     - name: 关于
       icon: fa-solid fa-info-circle
       url: /about/
@@ -98,13 +98,16 @@ cover:
       img: #/media/twemoji/assets/svg/paperplane.svg
       url: /tags/
     - name: 分类
-      icon: fas fa-archive
+      icon: fas fa-boxes
       img: #
       url: /categories/
+    - name: 归档
+      icon: fas fa-archive
+      url: /archives/ 
     - name: 友链
       icon: fa-solid fa-link
       img: #/media/twemoji/assets/svg/link.svg
-      url: /remotelinks/
+      url: /friends/
     - name: 关于
       icon: fa-solid fa-info-circle
       img: #/media/twemoji/assets/svg/question.svg 
@@ -188,7 +191,7 @@ article:
       # https://volantis.js.org/advanced-settings/#多人协同
       author: 
         avatar: /media/org.volantis/blog/favicon/apple-touch-icon.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png
-        name: 一只脆脆鲨
+        name: Yoozy
         url: /
       # 文章创建日期
       date:
@@ -441,7 +444,7 @@ sidebar:
       avatar: https://picsum.photos/150 # /media/twemoji/assets/svg/shark.svg 
       shape: rectangle # circle, rectangle
       url: /about/
-      title:  一只脆脆鲨
+      title:  Yoozy
       subtitle: 一花一世界，一叶一菩提
       jinrishici: false # Poetry Today. You can set a string, and it will be displayed when loading fails.
       social:
@@ -586,7 +589,7 @@ site_footer:
     <span id="lc-sv">本站总访问量为 <span id='number'><i class="fa-solid fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
     <span id="lc-uv">访客数为 <span id='number'><i class="fa-solid fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
   # site copyright
-  copyright: '[Copyright © 2017-2022 一只脆脆鲨](/)'
+  copyright: '[Copyright © 2017-2022 Yoozy](/)'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
   br: '<br>'
 ############################### Site Footer ############################### > end
@@ -1069,7 +1072,7 @@ color_scheme:
 ############################### Custom css ############################### > start
 custom_css:
   cursor:
-    enable: #true
+    enable: true
     text: /media/cursor/text.png # https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/text.png
     pointer: /media/cursor/pointer.png # https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/pointer.png
     default: /media/cursor/left_ptr.png # https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/left_ptr.png
