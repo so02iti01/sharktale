@@ -1,16 +1,18 @@
 ---
 title: 关于volantis模板一些注意事项
 date: 2022-03-25 15:20:22
-tags: volantis Hexo
+tags: 
+ - volantis
+ - Hexo
 ---
 
-# 导航栏设置
+## 导航栏设置
 
-## 导航栏相关的页面布局设置
+### 导航栏相关的页面布局设置
 
 `归档`页面为自动生成，初始化时已经生成。`友链`，`关于`等页面都是需要写在`source/about/index.md`（如果没有需要创建一个）里面。
 
-### 关于页面
+#### 关于页面
 
 In `source/about/index.md`:
 
@@ -27,7 +29,7 @@ valine:
 下面写关于自己的内容
 ```
 
-### 分类页面
+#### 分类页面
 
 In `source/categories/index.md`:
 
@@ -39,7 +41,7 @@ title: 所有分类
 ---
 ```
 
-### 标签页面
+#### 标签页面
 
 In  `source/tags/index.md`:
 
@@ -51,9 +53,9 @@ title: 所有标签
 ---
 ```
 
-### 友链页面
+#### 友链页面
 
-首先，在 `source/tags/index.md`写入：
+首先，在 `source/friends/index.md`写入：
 
 ```
 ---
@@ -99,7 +101,7 @@ pages:
 
 不同的布局方式，会用到一部分的字段，一般来说，`title`、`avatar` 和 `url` 都是必须的。这些数据被转成 HTML 标签插入到友链页面的 `<!-- more -->` 部分。
 
-## 开启网站的站内搜索
+### 开启网站的站内搜索
 
 `search`功能，默认由hexo自己产生，需要先执行下面的命令，安装必要插件：
 
@@ -107,7 +109,7 @@ pages:
 $ npm i hexo-generator-json-content
 ```
 
-# 网站图标
+## 网站图标
 
 设置网站图标，需要在博客根目录下的 `_config.yml` 文件写入：
 
@@ -116,9 +118,9 @@ $ npm i hexo-generator-json-content
 favicon: <your icon url>
 ```
 
-# Others
+## Others
 
-## 文章页面设置（Front-matter）
+### 文章页面设置（Front-matter）
 
 [**Front-matter**](https://hexo.io/zh-cn/docs/front-matter) 是文件最上方以 `---` 分隔的区域，用于指定个别文件的变量，举例来说：
 
@@ -140,6 +142,12 @@ date:                          # 创建日期
 updated:                       # 更新日期
 title: 取个什么标题好呢           # 页面标题
 seo_title: 关于                 # 网页标题
+
+tags:Hexo                      #单个标签
+tags:                          # 设置多个标签        
+ - volantis
+ - Hexo
+
 pin: true                      # 置顶在首页
 archive: false                 # 文章不归档
 author: Jon         # 设置文章作者，其他作者信息需要写在数据文件/source/_data/author.yml
@@ -162,7 +170,7 @@ sidebar: [grid, toc, tags]    # 放置任何你想要显示的侧边栏部件
 
 配置页面插件（说说，渲染公式，Snackbar页面通知等），见[Volantis: 页面配置](https://volantis.js.org/v5/page-settings)。
 
-### 相关文章插件
+#### 相关文章插件
 
 `相关文章`功能，需要安装插件 (for layout: post)：
 
@@ -170,7 +178,7 @@ sidebar: [grid, toc, tags]    # 放置任何你想要显示的侧边栏部件
 $ npm i hexo-related-popular-posts
 ```
 
-## 404页面
+### 404页面
 
 创建`source/404.md`，写入：
 
@@ -194,7 +202,7 @@ valine:
 
 ------
 
-# 参考资料
+## 参考资料
 
 [1] Volantis Team, [页面配置](https://volantis.js.org/v5/page-settings), Volantis.org. （最后一次获取时间：2022-03-25）
 
