@@ -102,4 +102,7 @@ theme: volantis
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo: https://github.com/so02iti01/so02iti01.github.io.git
+  branch: master
+  message: Site updated {{ now('YYYY-MM-DD HH:mm:ss') }}

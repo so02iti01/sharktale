@@ -1,0 +1,49 @@
+<h1 id=""><a href="#" class="headerlink" title=""></a><a href="https://katex.org/"><img src="https://katex.org/img/katex-logo-black.svg" width="130" alt="KaTeX"></a></h1><p><a href="https://www.npmjs.com/package/katex"><img src="https://img.shields.io/npm/v/katex.svg" alt="npm"></a><br><a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release"></a><br><a href="https://github.com/KaTeX/KaTeX/actions?query=workflow:CI"><img src="https://github.com/KaTeX/KaTeX/workflows/CI/badge.svg?branch=main&event=push" alt="CI"></a><br><a href="https://codecov.io/gh/KaTeX/KaTeX"><img src="https://codecov.io/gh/KaTeX/KaTeX/branch/main/graph/badge.svg" alt="codecov"></a><br><a href="https://github.com/KaTeX/KaTeX/discussions"><img src="https://img.shields.io/badge/Discussions-join-brightgreen" alt="Discussions"></a><br><a href="https://www.jsdelivr.com/package/npm/katex"><img src="https://data.jsdelivr.com/v1/package/npm/katex/badge?style=rounded" alt="jsDelivr"></a><br><img src="https://img.badgesize.io/https://unpkg.com/katex/dist/katex.min.js?compression=gzip" alt="katex.min.js size"><br><a href="https://gitpod.io/#https://github.com/KaTeX/KaTeX"><img src="https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod" alt="Gitpod ready-to-code"></a><br><a href="https://opencollective.com/katex"><img src="https://opencollective.com/katex/all/badge.svg?label=financial+contributors" alt="Financial Contributors on Open Collective"></a></p>
+<p>KaTeX is a fast, easy-to-use JavaScript library for TeX math rendering on the web.</p>
+<ul>
+<li><strong>Fast:</strong> KaTeX renders its math synchronously and doesn’t need to reflow the page. See how it compares to a competitor in <a href="http://www.intmath.com/cg5/katex-mathjax-comparison.php">this speed test</a>.</li>
+<li><strong>Print quality:</strong> KaTeX’s layout is based on Donald Knuth’s TeX, the gold standard for math typesetting.</li>
+<li><strong>Self contained:</strong> KaTeX has no dependencies and can easily be bundled with your website resources.</li>
+<li><strong>Server side rendering:</strong> KaTeX produces the same output regardless of browser or environment, so you can pre-render expressions using Node.js and send them as plain HTML.</li>
+</ul>
+<p>KaTeX is compatible with all major browsers, including Chrome, Safari, Firefox, Opera, Edge, and IE 11.</p>
+<p>KaTeX supports much (but not all) of LaTeX and many LaTeX packages. See the <a href="https://katex.org/docs/supported.html">list of supported functions</a>.</p>
+<p>Try out KaTeX <a href="https://katex.org/#demo">on the demo page</a>!</p>
+<h2 id="Getting-started"><a href="#Getting-started" class="headerlink" title="Getting started"></a>Getting started</h2><h3 id="Starter-template"><a href="#Starter-template" class="headerlink" title="Starter template"></a>Starter template</h3><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;!-- KaTeX requires the use of the HTML5 doctype. Without it, KaTeX may not render properly --&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css&quot; integrity=&quot;sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ&quot; crossorigin=&quot;anonymous&quot;&gt;
+
+    &lt;!-- The loading of KaTeX is deferred to speed up page rendering --&gt;
+    &lt;script defer src=&quot;https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js&quot; integrity=&quot;sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+
+    &lt;!-- To automatically render math in text elements, include the auto-render extension: --&gt;
+    &lt;script defer src=&quot;https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js&quot; integrity=&quot;sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR&quot; crossorigin=&quot;anonymous&quot;
+        onload=&quot;renderMathInElement(document.body);&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  ...
+&lt;/html&gt;
+</code></pre>
+<p>You can also <a href="https://github.com/KaTeX/KaTeX/releases">download KaTeX</a> and host it yourself.</p>
+<p>For details on how to configure auto-render extension, refer to <a href="https://katex.org/docs/autorender.html">the documentation</a>.</p>
+<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><p>Call <code>katex.render</code> to render a TeX expression directly into a DOM element.<br>For example:</p>
+<pre><code class="js">katex.render(&quot;c = \\pm\\sqrt{a^2 + b^2}&quot;, element, {
+    throwOnError: false
+});
+</code></pre>
+<p>Call <code>katex.renderToString</code> to generate an HTML string of the rendered math,<br>e.g., for server-side rendering.  For example:</p>
+<pre><code class="js">var html = katex.renderToString(&quot;c = \\pm\\sqrt{a^2 + b^2}&quot;, {
+    throwOnError: false
+});
+// &#39;&lt;span class=&quot;katex&quot;&gt;...&lt;/span&gt;&#39;
+</code></pre>
+<p>Make sure to include the CSS and font files in both cases.<br>If you are doing all rendering on the server, there is no need to include the<br>JavaScript on the client.</p>
+<p>The examples above use the <code>throwOnError: false</code> option, which renders invalid<br>inputs as the TeX source code in red (by default), with the error message as<br>hover text.  For other available options, see the<br><a href="https://katex.org/docs/api.html">API documentation</a>,<br><a href="https://katex.org/docs/options.html">options documentation</a>, and<br><a href="https://katex.org/docs/error.html">handling errors documentation</a>.</p>
+<h2 id="Demo-and-Documentation"><a href="#Demo-and-Documentation" class="headerlink" title="Demo and Documentation"></a>Demo and Documentation</h2><p>Learn more about using KaTeX <a href="https://katex.org/">on the website</a>!</p>
+<h2 id="Contributors"><a href="#Contributors" class="headerlink" title="Contributors"></a>Contributors</h2><h3 id="Code-Contributors"><a href="#Code-Contributors" class="headerlink" title="Code Contributors"></a>Code Contributors</h3><p>This project exists thanks to all the people who contribute code. If you’d like to help, see <a href="CONTRIBUTING.md">our guide to contributing code</a>.<br><a href="https://github.com/KaTeX/KaTeX/graphs/contributors"><img src="https://contributors-svg.opencollective.com/katex/contributors.svg?width=890&button=false" alt="Code contributors" /></a></p>
+<h3 id="Financial-Contributors"><a href="#Financial-Contributors" class="headerlink" title="Financial Contributors"></a>Financial Contributors</h3><p>Become a financial contributor and help us sustain our community.</p>
+<h4 id="Individuals"><a href="#Individuals" class="headerlink" title="Individuals"></a>Individuals</h4><p><a href="https://opencollective.com/katex"><img src="https://opencollective.com/katex/individuals.svg?width=890" alt="Contribute on Open Collective"></a></p>
+<h4 id="Organizations"><a href="#Organizations" class="headerlink" title="Organizations"></a>Organizations</h4><p>Support this project with your organization. Your logo will show up here with a link to your website.</p>
+<p><a href="https://opencollective.com/katex/organization/0/website"><img src="https://opencollective.com/katex/organization/0/avatar.svg" alt="Organization 1"></a><br><a href="https://opencollective.com/katex/organization/1/website"><img src="https://opencollective.com/katex/organization/1/avatar.svg" alt="Organization 2"></a><br><a href="https://opencollective.com/katex/organization/2/website"><img src="https://opencollective.com/katex/organization/2/avatar.svg" alt="Organization 3"></a><br><a href="https://opencollective.com/katex/organization/3/website"><img src="https://opencollective.com/katex/organization/3/avatar.svg" alt="Organization 4"></a><br><a href="https://opencollective.com/katex/organization/4/website"><img src="https://opencollective.com/katex/organization/4/avatar.svg" alt="Organization 5"></a><br><a href="https://opencollective.com/katex/organization/5/website"><img src="https://opencollective.com/katex/organization/5/avatar.svg" alt="Organization 6"></a><br><a href="https://opencollective.com/katex/organization/6/website"><img src="https://opencollective.com/katex/organization/6/avatar.svg" alt="Organization 7"></a><br><a href="https://opencollective.com/katex/organization/7/website"><img src="https://opencollective.com/katex/organization/7/avatar.svg" alt="Organization 8"></a><br><a href="https://opencollective.com/katex/organization/8/website"><img src="https://opencollective.com/katex/organization/8/avatar.svg" alt="Organization 9"></a><br><a href="https://opencollective.com/katex/organization/9/website"><img src="https://opencollective.com/katex/organization/9/avatar.svg" alt="Organization 10"></a></p>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>KaTeX is licensed under the <a href="http://opensource.org/licenses/MIT">MIT License</a>.</p>
