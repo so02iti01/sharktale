@@ -55,7 +55,7 @@ navbar:
     img:  
     icon:  fas fa-atom
     title: sharktale
-  menu:
+  menu: # # 下面这个工具栏，不在封面图片上！！！
     - name: 首页
       icon: fa-solid fa-rss
       url: /
@@ -64,10 +64,10 @@ navbar:
       url: /tags/ 
     - name: 归档
       icon: fas fa-archive
-      url: /categories/
-    - name: 虫洞
+      url: /archives/ 
+    - name: 友链
       icon: fa-solid fa-link
-      url:  /friends/
+      url: /friends/
     - name: 关于
       icon: fa-solid fa-info-circle
       url: /about/
@@ -88,7 +88,7 @@ cover:
   title: 'Sharktale'
   subtitle: '捅了一个鲨鱼窝！'
   search: Search in the sea... # search bar placeholder
-  features:
+  features: # 下面这个工具栏，出现在封面图片上
     - name: 首页
       icon: fa-solid fa-rss
       img: #/media/twemoji/assets/svg/lightbub.svg 
@@ -97,10 +97,6 @@ cover:
       icon: fa-solid fa-tags
       img: #/media/twemoji/assets/svg/paperplane.svg
       url: /tags/
-    - name: 分类
-      icon: fas fa-boxes
-      img: #
-      url: /categories/
     - name: 归档
       icon: fas fa-archive
       url: /archives/ 

@@ -83,7 +83,11 @@ $ hexo g -d
 | -f 或者--force        | Force regenerate                                             |
 | -w 或者--watch        | Watch file changes                                           |
 
-参考资料：
+
+
+------
+
+# 参考资料
 
 [1] Barrel Titor, [用 Hexo 和 GitHub Page 搭建静态博客](https://zhuanlan.zhihu.com/p/149531391#:~:text=%E5%9C%A8%20GitHub%20Page%20%E4%B8%8A%E6%9C%89%E4%B8%A4%E4%B8%AA%E4%B8%BB%E6%B5%81%E7%9A%84%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6%EF%BC%9AJekyll%20%E5%92%8C%20Hexo%E3%80%82%20Jekyll,%E4%B8%8E%20GitHub%20%E5%A5%91%E5%90%88%E5%BA%A6%E6%9B%B4%E9%AB%98%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%9C%A8%20GitHub%20%E4%B8%AD%E7%9B%B4%E6%8E%A5%E7%94%9F%E6%88%90%E9%A1%B5%E9%9D%A2%EF%BC%9BHexo%20%E4%B8%AD%E6%96%87%E8%B5%84%E6%96%99%E6%9B%B4%E4%B8%B0%E5%AF%8C%EF%BC%8C%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD%E6%9B%B4%E5%A4%9A%EF%BC%8C%E4%BD%86%E6%98%AF%E9%83%A8%E7%BD%B2%E5%92%8C%E5%A4%87%E4%BB%BD%E6%AF%94%20Jekyll%20%E9%BA%BB%E7%83%A6%E3%80%82), 知乎. (最后一次获取时间：2022-03-25)
 

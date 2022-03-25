@@ -4,9 +4,10 @@
 
 # Site
 title: Sharktale
+favicon: /media/twemoji/assets/svg/atom.svg
 subtitle: 捅了一个鲨鱼窝'
 description: ''
-keywords: wonderland
+keywords: 
 author: Yoozy
 language: en
 timezone: 'Asia/Shanghai'
