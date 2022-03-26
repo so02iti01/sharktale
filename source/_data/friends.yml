@@ -8,9 +8,9 @@
       screenshot:             # 截图
       keywords:           # 关键词
       description:            # 描述
-    - title:                # 名称
-      avatar:               # 头像
-      url:                  # 链接
+    - title: chn               # 名称
+      avatar: https://s2.loli.net/2022/03/25/SvaRl5PyM9OqHfC.jpg              # 头像
+      url: https://chn.moe/                 # 链接
       screenshot:             # 截图
       keywords:           # 关键词
       description:            # 描述

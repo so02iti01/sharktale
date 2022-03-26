@@ -928,14 +928,14 @@ plugins:
 ############################### Rightmenu ############################### > start
 # 自定义右键菜单
 rightmenu:
-  enable: true
+  enable: false
   faicon: fa              # 公共图标类型 fa fal fa-solid fa-duotone
   # hr: 分割线, music: 音乐控制器
   layout: [home, hr, help, examples, contributors, hr, source_docs, source_theme, hr, print, darkmode, reading, music]
   ### 可选功能项 ###
-  print:                  # 只有文章页才允许自定义打印
-    name: 打印页面
-    icon: fa fa-print
+  # print:                  # 只有文章页才允许自定义打印
+  #  name: 打印页面
+  #  icon: fa fa-print
   darkmode:        # 需开启 plugins.darkmodejs
     name: 暗黑模式
     icon: fa fa-moon
@@ -947,28 +947,12 @@ rightmenu:
     old: #https://static.inkss.cn/img/article/
     new: #https://cdn.jsdelivr.net/gh/inkss/inkss-cdn@master/img/article/
   music:           # 当设定全局音乐播放器时，是否一直显示音乐控制菜单。false：仅当音乐播放时启用
-    alwaysShow: true
+    alwaysShow: false
   ### 自定义菜单 ###
-  help:
-    name: 常见问题
-    icon: fa fa-question
-    url: https://volantis.js.org/faqs/
-  examples:
-    name: 示例博客
-    icon: fa fa-rss
-    url: https://volantis.js.org/examples/
-  contributors:
-    name: 加入社区
-    icon: fa fa-fan fa-spin
-    url: https://volantis.js.org/contributors/
-  source_docs:
-    name: 本站源码
-    icon: fa fa-code-branch
-    url: https://github.com/volantis-x/volantis-docs/
-  source_theme:
-    name: 主题源码
-    icon: fa fa-code-branch
-    url: https://github.com/volantis-x/hexo-theme-volantis/
+  #help:
+  #  name: 常见问题
+  #  icon: fa fa-question
+   # url: https://volantis.js.org/faqs/
 ############################### Rightmenu ############################### > end
 
 

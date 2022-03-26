@@ -22,8 +22,6 @@ layout: docs
 seo_title: 关于
 bottom_meta: false
 sidebar: []
-valine:
-  placeholder: 有什么想对我说的呢？
 ---
 
 下面写关于自己的内容
@@ -178,6 +176,23 @@ sidebar: [grid, toc, tags]    # 放置任何你想要显示的侧边栏部件
 $ npm i hexo-related-popular-posts
 ```
 
+### 数据统计
+
+如果选择[不蒜子](http://busuanzi.ibruce.info/)，取消主题配置文件中的busuanzi注释。
+
+如果选择 [leancloud](https://leancloud.app/) 统计, 你还需前往 leancloud 创建应用并填写下面 leancloud 相关配置。
+
+```
+analytics:
+  busuanzi: #/libs/busuanzi/js/busuanzi.pure.mini.js #https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js
+  leancloud: # 请使用自己的 id & key 以防止数据丢失
+    app_id: # 应用 APP_ID
+    app_key: # 应用 APP_KEY
+    custom_api_server: # 国际版一般不需要写，除非自定义了 API Server
+```
+
+由于我注册 [leancloud](https://leancloud.app/) 的SMS verification出了问题，所以最后选择了[不蒜子](http://busuanzi.ibruce.info/)。
+
 ### 404页面
 
 创建`source/404.md`，写入：
@@ -190,9 +205,6 @@ sitemap: false
 seo_title: 404 Not Found
 bottom_meta: false
 sidebar: []
-valine:
-  path: /404.html
-  placeholder: 请留言告诉我您要访问哪个页面找不到了
 ---
 
 {% p logo center huge, 404 %}
@@ -211,4 +223,6 @@ valine:
 [3] Volantis Team, [Volantis主题源代码的](https://github.com/volantis-x/hexo-theme-volantis/tree/dev)"_config.yml"文件, GitHub. （最后一次获取时间：2022-03-25）
 
 [4] Hexo, [Front-matter](https://hexo.io/zh-cn/docs/front-matter), hexo.io.（最后一次获取时间：2022-03-25）
+
+[5] Volantis Team, [进阶设定](https://volantis.js.org/v5/advanced-settings), Volantis.org. （最后一次获取时间：2022-03-25）
 
