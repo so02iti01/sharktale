@@ -346,26 +346,26 @@ sidebar:
           text: '文章数目：'
           unit: '篇'
         runtime:
-          enable: true
+          enable: false
           data: '2022/04/01'    # 填写建站日期
           text: '已运行时间：'
           unit: '天'
         wordcount:
-          enable: true
+          enable: false
           text: '本站总字数：'   # 需要启用 wordcount
           unit: '字'
         visitcounter:
           service: busuanzi  # busuanzi, leancloud
           siteuv: 
-            enable: true
+            enable: false
             text: '本站访客数：'
             unit: '人'
           sitepv:
-            enable: true
+            enable: false
             text: '本站总访问量：'
             unit: '次'
         lastupd:
-          enable: true
+          enable: false
           friendlyShow: true    # 更友好的时间显示
           text: '最后活动时间：'
           unit: '日'
