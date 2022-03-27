@@ -169,7 +169,7 @@ article:
       # ----------------
       # 版权声明组件 (for layout: post)
       copyright:
-        enable: true
+        enable: false
         permalink: '本文永久链接是：'
         content:
           - '博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议'
@@ -236,26 +236,7 @@ comments:
   subtitle:
   service: giscus
   # 可选评论系统 #
-
-  # artalk
-  # https://artalk.js.org/
-  # https://github.com/ArtalkJS/Artalk
-  artalk:
-    js: https://cdn.jsdelivr.net/npm/artalk@2.1.3/dist/Artalk.js
-    css: https://cdn.jsdelivr.net/npm/artalk@2.1.3/dist/Artalk.css
-    server: http://127.0.0.1:8080/api    # 修改为自建的后端服务地址
-    path:  # 全局评论地址
-    # 更多选项 https://artalk.js.org/guide/frontend/config.htm 按照yml格式继续填写即可 
-    # 除了 [el pageKey pageTitle site] 选项
-    # 下面是一些例子：
-    placeholder: 快来评论吧~   # 全局评论占位
-    noComment: 快来成为第一个评论的人吧~  # 评论为空时，评论列表显示字符
-    pagination:
-      readMore: true   # 加载更多模式
-      autoLoad: false  # 滚动到底部自动加载
-      pageSize: 10     # 每次请求获取数量
-    
-  # giscus
+  # 选择了giscus
   # https://giscus.app
   # https://github.com/laymonage/giscus
   giscus:
@@ -263,165 +244,14 @@ comments:
       light: "light" # https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/css/giscus/light.css
       dark: "dark" # https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/css/giscus/dark.css
     # 以下配置按照 yml 格式增删填写即可
-      repo: so02iti01/so02iti01.github.io
-      repo-id: R_kgDOHDLshA
-      category: Show and tell
-      category-id: DIC_kwDOHDLshM4COPgk
-      mapping: "og:title"
-      reactions-enabled: "1"
-      emit-metadata: "0"
-      lang: "zh-CN"
-    # repo: xxx/xxx
-    # repo-id: xxx
-    # category: xxx
-    # category-id: xxx
-    # mapping: "pathname"
-    # reactions-enabled: "1"
-    # emit-metadata: "0"
-    # lang: "zh-CN"
-
-  # beaudar
-  # https://beaudar.lipk.org/
-  beaudar:
-    repo: xxx/xxx
-    issue-term: pathname
-    issue-number:
-    branch: main
-    position: top
-    order: desc
-    theme:
-      light: github-light
-      dark: github-dark
-    label: ✨💬✨
-
-  # utterances
-  # https://utteranc.es/
-  utterances:
-    repo: xxx/xxx
-    issue-term: pathname
-    issue-number:
-    theme:
-      light: github-light
-      dark: github-dark
-    label: ✨💬✨
-
-  # Valine
-  # https://valine.js.org/
-  valine:
-    js: https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js
-    emojiCDN: https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/
-    path: # 全局评论地址 目前设置全局评论地址后visitor失效,这是valine的问题
-    placeholder: 快来评论吧~  # 评论占位提示
-    # 其他配置项按照yml格式继续填写即可 除了 [el path placeholder emojiCDN emojiMaps] 选项
-    appId: # your appId
-    appKey: # your appKey
-    meta: [nick,mail,link] # valine comment header info
-    requiredFields: [nick,mail]
-    enableQQ: true # Unstable avatar link
-    recordIP: false # Record commenter IP
-    avatar: robohash # gravatar style https://valine.js.org/avatar
-    pageSize: 10 # comment list page size
-    lang: zh-cn
-    highlight: true
-    mathJax: false
-
-  # MiniValine
-  # https://github.com/MiniValine/MiniValine
-  minivaline:
-    js: https://cdn.jsdelivr.net/npm/minivaline@latest
-    path: # 全局评论地址
-    placeholder: 快来评论吧~  # 全局评论占位提示
-    # 更多选项 https://minivaline.js.org/docs/cn/#/Options 按照yml格式继续填写即可 （除了 [el path placeholder] 选项）
-    # 下面是一个例子：
-    serverURL: https://hello.com
-
-  # Disqus
-  # https://disqus.com
-  disqus:
-    shortname:
-    # optional
-    autoload: false
-    path: # 全局评论地址
-
-  # DisqusJS
-  # https://github.com/SukkaW/DisqusJS
-  disqusjs:
-    path: # 全局评论地址
-    js: https://cdn.jsdelivr.net/npm/disqusjs@1.3/dist/disqus.js
-    css: https://cdn.jsdelivr.net/npm/disqusjs@1.3/dist/disqusjs.css
-    # 配置项按照yml格式继续填写即可 除了 [siteName url identifier] 选项
-    #shortname:
-    #api:
-    #apikey:
-    #admin:
-    #nesting:
-
-  # Gitalk
-  # https://gitalk.github.io/
-  gitalk:
-    js: https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js
-    # 配置项按照yml格式继续填写即可 除了 [id distractionFreeMode] 选项
-    clientID:
-    clientSecret:
-    repo:
-    owner:
-    admin: # []
-    path: # 全局评论地址
-
-  # Vssue 暂不支持Pjax
-  # https://vssue.js.org/zh/
-  vssue:
-    js: https://cdn.jsdelivr.net/gh/meteorlxy/vssue@1.4.4/packages/vssue/dist/vssue.github.min.js
-    css: https://cdn.jsdelivr.net/gh/meteorlxy/vssue@1.4.4/packages/vssue/dist/vssue.min.css
-    vue: https://cdn.jsdelivr.net/gh/vuejs/vue@2.6.11/dist/vue.runtime.min.js
-    owner:
-    repo:
-    clientId:
-    clientSecret:
-
-  # LiveRe 暂不支持Pjax
-  # https://www.livere.com
-  livere:
-    uid:
-
-  # Isso
-  # https://posativ.org/isso/
-  isso:
-    url: https://example.com/(path/)
-    src: https://example.com/(path/)js/embed.min.js
-    css:
-    gravatar:
-
-  # HashOver 暂不支持Pjax
-  # https://www.barkdull.org/software/hashover
-  hashover:
-    src: https://example.com/(path/)comments.php
-
-  # Twikoo
-  # https://twikoo.js.org/
-  twikoo:
-    js: https://cdn.jsdelivr.net/npm/twikoo@latest # 建议锁定版本
-    path: # 全局评论地址
-    # 其他配置项按照yml格式继续填写即可 除了 [el path] 选项
-    envId: xxxxxxxxxxxxxxx # 腾讯云环境id
-    placeholder: #全局评论占位，也可以在管理面板中的配置管理处设置（此处优先级更高）
-
-  # Waline
-  # https://waline.js.org/
-  waline:
-    js: https://npm.elemecdn.com/@waline/client@1.5.4/dist/Waline.min.js
-    path: # 全局评论地址 目前设置全局评论地址后visitor失效,这是waline的问题
-    placeholder: 快来评论吧~  # 评论占位提示
-    # imageHosting: https://7bu.top/api/upload?token=7ffe9d626fe4315c953758efbdb6ee2e # 图床api（默认注释使用base64）
-    # 其他配置项按照yml格式继续填写即可 除了 [el path placeholder uploadImage] 选项
-    meta: [nick,mail,link] # waline comment header info
-    requiredFields: [nick,mail]
-    serverURL: xxxxxxxxxxxxxxx # Waline 的服务端地址（必填） 测试用地址: https://waline-ruddy.vercel.app
-    avatar: robohash # gravatar style https://waline.js.org/client/basic.html#avatar
-    avatarCDN: #https://sdn.geekzu.org/avatar/
-    pageSize: 10 # 评论每页显示数量
-    lang: zh-CN
-    visitor: true
+    repo: so02iti01/so02iti01.github.io
+    repo-id: R_kgDOHDLshA
+    category: Annoucements
+    category-id: DIC_kwDOHDLshM4COPgk
+    mapping: "og:title"
+    reactions-enabled: "1"
+    emit-metadata: "0"
+    lang: "zh-CN"
 
 
 ############################### Comments ############################### > end
@@ -872,7 +702,7 @@ plugins:
     backgroundColor: 'var(--color-card)' # 默认背景色
     zindex: 2147483647                   # 层级
     copyright:                           # 是否在复制时弹出版权提示，影响范围：ctrl+c、代码块复制按钮、右键复制选项
-      enable: true
+      enable: false
       title: '知识共享许可协议'
       message: '请遵守 CC BY-NC-SA 4.0 协议。'
       icon: 'far fa-copyright light-blue'
