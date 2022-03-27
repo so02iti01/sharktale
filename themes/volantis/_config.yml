@@ -520,30 +520,30 @@ sidebar:
         title: 站点信息
       type:
         article:
-          enable: true
+          enable: false
           text: '文章数目：'
           unit: '篇'
         runtime:
-          enable: true
+          enable: false
           data: '2020/01/01'    # 填写建站日期
           text: '已运行时间：'
           unit: '天'
         wordcount:
-          enable: true
+          enable: false
           text: '本站总字数：'   # 需要启用 wordcount
           unit: '字'
         visitcounter:
-          service: leancloud  # busuanzi, leancloud
+          service: busuanzi  # busuanzi, leancloud
           siteuv:
-            enable: true
+            enable: false
             text: '本站访客数：'
             unit: '人'
           sitepv:
-            enable: true
+            enable: false
             text: '本站总访问量：'
             unit: '次'
         lastupd:
-          enable: true
+          enable: false
           friendlyShow: true    # 更友好的时间显示
           text: '最后活动时间：'
           unit: '日'
@@ -592,9 +592,9 @@ site_footer:
   # site source
   source: https://github.com/volantis-x/volantis-docs/
   # analytics using leancloud
-  analytics: >
-    <span id="lc-sv">本站总访问量为 <span id='number'><i class="fa-solid fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
-    <span id="lc-uv">访客数为 <span id='number'><i class="fa-solid fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
+  #analytics: >
+    #<span id="lc-sv">本站总访问量为 <span id='number'><i class="fa-solid fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
+    #<span id="lc-uv">访客数为 <span id='number'><i class="fa-solid fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
   # site copyright
   copyright: '[Copyright © 2017-2020 XXX](/)'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
