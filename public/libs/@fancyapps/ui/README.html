@@ -1,0 +1,150 @@
+<h1 id="Fancyapps-UI"><a href="#Fancyapps-UI" class="headerlink" title="Fancyapps UI"></a>Fancyapps UI</h1><p>Collection of task-oriented components that will make you more productive. Packed full of features that you and your clients will love.</p>
+<p>Full docs with examples: <a href="https://fancyapps.com/docs/ui/quick-start/">https://fancyapps.com/docs/ui/quick-start/</a>.</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><h3 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h3><p>Use either <code>npm</code> or <code>yarn</code> as follows:</p>
+<pre><code class="bash">npm install @fancyapps/ui
+// or
+yarn add  @fancyapps/ui
+</code></pre>
+<p>Import one or more components:</p>
+<pre><code class="jsx">import { Fancybox, Carousel, Panzoom } from &quot;@fancyapps/ui&quot;;
+</code></pre>
+<p>Import the appropriate CSS file, example:</p>
+<pre><code class="jsx">import &quot;@fancyapps/ui/dist/fancybox.css&quot;;
+</code></pre>
+<h3 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h3><p>A pre-bundled scripts that contain components are available on <a href="https://www.jsdelivr.com/package/npm/@fancyapps/ui?path=dist">CDN</a>.</p>
+<blockquote>
+<p><strong><em>NOTE:</em></strong> Because Fancybox is build on top of both Carousel and Panzoom components, you only have to include <code>fancybox.umd.js</code> and all 3 components will be available through the <code>window</code> object.</p>
+</blockquote>
+<pre><code class="html">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>Or use ES6 import:</p>
+<pre><code class="html">&lt;script type=&quot;module&quot;&gt;
+  import { Fancybox } from &quot;https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.esm.js&quot;;
+&lt;/script&gt;
+</code></pre>
+<p>Remember to include the appropriate CSS file, example:</p>
+<pre><code class="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css&quot; /&gt;
+</code></pre>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h3 id="Fancybox"><a href="#Fancybox" class="headerlink" title="Fancybox"></a>Fancybox</h3><p>There are two ways to use Fancybox.</p>
+<h4 id="Declarative"><a href="#Declarative" class="headerlink" title="Declarative"></a>Declarative</h4><p>Add a <code>data-fancybox</code> attribute to any element to enable Fancybox. Galleries are created by adding the same attribute <code>data-fancybox</code> value to multiple elements. Use <code>data-src</code> or <code>href</code> attribute to specify the source of the content. Add a <code>data-caption</code> attribute if you want to show a caption under the content.</p>
+<pre><code class="jsx">&lt;a href=&quot;https://lipsum.app/id/1/1024x768&quot; data-fancybox=&quot;gallery&quot; data-caption=&quot;Optional caption&quot;&gt;
+  Image
+&lt;/a&gt;
+</code></pre>
+<pre><code class="jsx">&lt;a href=&quot;http://media.w3.org/2010/05/sintel/trailer.mp4&quot; data-fancybox&gt;
+  Video
+&lt;/a&gt;
+</code></pre>
+<pre><code class="jsx">&lt;a
+  href=&quot;https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10500.902039411158!2d2.2913514905137315!3d48.85391001859112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1slv!2slv!4v1622011463926!5m2!1slv!2slv&quot;
+  data-fancybox
+  data-type=&quot;iframe&quot;
+  data-preload=&quot;false&quot;
+  data-width=&quot;640&quot;
+  data-height=&quot;480&quot;
+&gt;
+  Iframe
+&lt;/a&gt;
+</code></pre>
+<pre><code class="jsx">&lt;button data-fancybox data-src=&quot;#dialog-content&quot;&gt;
+  HTML element
+&lt;/button&gt;
+
+&lt;div id=&quot;dialog-content&quot; style=&quot;display:none;&quot;&gt;
+  &lt;h2&gt;Hello, world!&lt;/h2&gt;
+  &lt;p&gt;
+    &lt;input type=&quot;text&quot; value=&quot;See if changes remain after closing the dialog&quot; /&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Customize options:</p>
+<pre><code class="js">Fancybox.bind(&quot;[data-fancybox]&quot;, {
+  // Your options go here
+});
+</code></pre>
+<h4 id="Programmatic"><a href="#Programmatic" class="headerlink" title="Programmatic"></a>Programmatic</h4><pre><code class="js">// Image gallery
+var gallery = [
+  {
+    src: &quot;https://lipsum.app/id/2/800x600&quot;,
+    thumb: &quot;https://lipsum.app/id/2/80x80&quot;,
+    caption: &quot;First image&quot;,
+  },
+  {
+    src: &quot;https://lipsum.app/id/3/800x600&quot;,
+    thumb: &quot;https://lipsum.app/id/3/80x80&quot;,
+    caption: &quot;Second image&quot;,
+  },
+  {
+    src: &quot;https://lipsum.app/id/4/800x600&quot;,
+    thumb: &quot;https://lipsum.app/id/4/80x80&quot;,
+    caption: &quot;Third image&quot;,
+  },
+];
+
+Fancybox.show(gallery, {
+  // Your options go here
+});
+
+// HTML element
+Fancybox.show([{ src: &quot;#dialog-content&quot;, type: &quot;inline&quot; }]);
+
+// A copy of HTML element
+Fancybox.show([{ src: &quot;#dialog-content&quot;, type: &quot;clone&quot; }]);
+
+// Any HTML content
+Fancybox.show([{ src: &quot;&lt;p&gt;Lorem ipsum dolor sit amet.&lt;/p&gt;&quot;, type: &quot;html&quot; }]);
+</code></pre>
+<h3 id="Carousel"><a href="#Carousel" class="headerlink" title="Carousel"></a>Carousel</h3><p>Add HTML markup</p>
+<pre><code class="html">&lt;div id=&quot;myCarousel&quot; class=&quot;carousel&quot;&gt;
+  &lt;div class=&quot;carousel__slide&quot;&gt;1&lt;/div&gt;
+  &lt;div class=&quot;carousel__slide&quot;&gt;2&lt;/div&gt;
+  &lt;div class=&quot;carousel__slide&quot;&gt;3&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Initialise Carousel</p>
+<pre><code class="js">const myCarousel = new Carousel(document.querySelector(&quot;#myCarousel&quot;), {
+  // Your options go here
+});
+</code></pre>
+<p>Optionally, use CSS to customize container, navigation elements and slides</p>
+<pre><code class="css">.carousel {
+  color: #170724;
+
+  --carousel-button-bg: #fff;
+  --carousel-button-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 3px 0 rgb(0 0 0 / 12%);
+
+  --carousel-button-svg-width: 20px;
+  --carousel-button-svg-height: 20px;
+  --carousel-button-svg-stroke-width: 2.5;
+}
+
+.carousel__slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 80%;
+  height: 160px;
+  margin-right: 6px;
+
+  background-color: #eee;
+  border-radius: 6px;
+}
+</code></pre>
+<h3 id="Panzoom"><a href="#Panzoom" class="headerlink" title="Panzoom"></a>Panzoom</h3><p>Add HTML markup</p>
+<pre><code class="html">&lt;div id=&quot;myPanzoom&quot; class=&quot;panzoom&quot;&gt;
+  &lt;img class=&quot;panzoom__content&quot; src=&quot;https://lipsum.app/id/3/2000x1500&quot; alt=&quot;&quot; /&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Initialise Panzoom</p>
+<pre><code class="js">const myPanzoom = new Panzoom(document.querySelector(&quot;#myPanzoom&quot;), {
+  // Your options go here
+});
+</code></pre>
+<p>Optionally, use CSS to customize container</p>
+<pre><code class="css">.panzoom {
+  width: 400px;
+  height: 300px;
+}
+</code></pre>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>This is commercial software. See <a href="LICENSE.md">LICENSE.md</a> for more info.</p>
