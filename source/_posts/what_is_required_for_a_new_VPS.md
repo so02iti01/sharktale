@@ -1,14 +1,17 @@
 ---
 title: 新VPS需要的一些设置
 date: 2022-03-29 15:18:29
-updated: 2022-03-30 19:48:15
-tags: VPS
+updated: 2022-03-31 11:27:39
+tags: 
+- VPS
+- PuTTY
+- Iptables
 ---
 
-给自己记个笔记......万一那一天需要重新做呢。
+万一哪一天需要重新做了，抱着这样的想法，记录了下来。
 <!-- more -->
 
-主要参考：[5 Steps to Get Your New Virtual Private Server (VPS) Ready to Use](https://www.hostinger.com/tutorials/getting-started-with-vps-hosting)
+[TOC]
 
 ##  安装 PuTTY 
 使用 windows 电脑连接 remote 的 Linux VPS，需要一个图形化的界面。（当然也可以安装一个 Linux 的系统来操作）。想减少我短期内需要做的事，所以暂时选择前一种方法。
@@ -54,7 +57,7 @@ usermod -aG sudo <your new username>
 
 按照前面2步的方法，使用原来的 **root** 账号登录VPS。使用以下命令，移动到之前创建的新用户的 home directory，这样命令行会对应到创建的新用户。
 ```
-su – yournewusernam
+su – <your new username>
 ```
 ![Switching users via the command line.](https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2018/10/switch-users.jpg)
 
@@ -95,7 +98,7 @@ exit
 
 输入下面的命令来关闭默认的密码的认证方式。
 
-> 注意：如果前面没有用keys登录成功，就不要开始关闭密码认证方式。如果前面设置错了，直接去服务商的网站上去 Rebuild > re-install，然后 Access >Reset root password
+> 注意：如果前面没有用keys登录成功，就不要开始关闭密码认证方式。如果前面设置错了，直接去服务商的网站上去 Rebuild > re-install，然后 Access >Reset root password，然后一切重头再来......
 
 ```
 sudo nano /etc/ssh/sshd_config
@@ -111,7 +114,7 @@ sudo nano /etc/ssh/sshd_config
 
 ## 为 VPS 安装 firewall
 
-设置防火墙之后，可以限制 VPS 向网络开放的端口。这样可以阻止很多针对服务器的攻击。可以使用 [iptables](https://en.wikipedia.org/wiki/Iptables) ，来设置一个防火墙。这部分参考了[ptables Tutorial – Securing Ubuntu VPS with Linux Firewall](https://www.hostinger.com/tutorials/iptables-tutorial)。
+设置防火墙之后，可以限制 VPS 向网络开放的端口。这样可以阻止很多针对服务器的攻击。可以使用 [iptables](https://en.wikipedia.org/wiki/Iptables) ，来设置一个防火墙。
 
 > iptables 只适用于 **ipv4** 协议，如果需要适用 **ipv6**协议，需要转而使用**ip6tables**
 
@@ -276,5 +279,9 @@ Iptables chains 更改的数据存于缓存里，但是重启 server 之后需�
 sudo /sbin/iptables-save
 ```
 
+## 参考资料
 
+[1] [5 Steps to Get Your New Virtual Private Server (VPS) Ready to Use](https://www.hostinger.com/tutorials/getting-started-with-vps-hosting)
+
+[2] [Iptables Tutorial – Securing Ubuntu VPS with Linux Firewall](https://www.hostinger.com/tutorials/iptables-tutorial)
 
