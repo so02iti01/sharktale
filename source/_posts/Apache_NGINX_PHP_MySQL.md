@@ -11,8 +11,6 @@ tags:
 - reverse
 ---
 
-[TOC]
-
 ## Apache 和 NGINX 对比
 
 根据[NGINX vs Apache – Choosing the Best Web Server in 2022](https://www.hostinger.com/tutorials/nginx-vs-apache-what-to-use/)，Apache 和 NGINX的优缺点主要为：
