@@ -250,7 +250,7 @@ comments:
     category-id: DIC_kwDOHDLshM4COPgk
     mapping: "og:title"
     reactions-enabled: "1"
-    emit-metadata: "0"
+    emit-metadata: "1"
     lang: "zh-CN"
 
 
