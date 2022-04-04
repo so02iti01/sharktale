@@ -6,7 +6,7 @@ sidebar: []
 comments: false
 ---
 
-这里是`Sharktale`，建给陪伴我的鲨鲨。我是Yoozy，可以叫我`柚子`。
+这里是`Sharktale`，建给陪伴我的鲨鲨。
 
 我喜欢新鲜空气，各种新奇的事物和ns！
 

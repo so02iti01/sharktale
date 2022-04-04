@@ -178,21 +178,21 @@ sudo nano（用nano，不要用vim，我觉得vim太难用了，可以的话还�
 sudo nano /etc/apache2/ports.conf
 ```
 
-On line **5**, change port 80 to 8080.
+在第 5 行，把端口号 80 改为 8080.
 
 ```
 Listen 8080
 ```
 
-Save and exit.
+> 8000 和 8080 都是 HTTP 协议的备用端口号
 
-Now go to the virtualhost directory and edit the file *"000-default.conf"* :
+在 **/etc/apache2/sites-available/** 目录下，创建文件 **000-default.conf**
 
 ```
 sudo nano /etc/apache2/sites-available/000-default.conf
 ```
 
-Make sure your configuration is same as below（把端口改为 **8080**，改为 8000 也可以 ）
+确保在 **000-default.conf** 文件中，配置如下：（把端口改为 **8080**，改为 8000 也可以 ）
 
 ```
 <VirtualHost *:8080>
@@ -205,11 +205,13 @@ Make sure your configuration is same as below（把端口改为 **8080**，改�
 </VirtualHost>
 ```
 
-![image-20220401144504104](C:\Users\19914\AppData\Roaming\Typora\typora-user-images\image-20220401144504104.png)
+设置完成后，按照上面 PHP 安装时候，检查是否正确的方法，查看浏览器网页：
+
+> <ip 地址>：8080/info.php
 
 ### 为 Apache 配置 NGINX
 
-Disable the Default Virtual Host
+关闭 default 的虚拟主机（visual host）
 
 ```
 sudo unlink /etc/nginx/sites-enabled/default
@@ -223,17 +225,13 @@ sudo nano /etc/nginx/nginx.conf
 
 ![Enable gzip and proxying.](https://www.howtoforge.com/images/how-to-install-nginx-as-reverse-proxy-for-apache-on-ubuntu-15-10/2.png?ezimgfmt=rs:550x199/rscb5/ng:webp/ngcb5)
 
-Save and Exit.
-
-Now we will configure a virtualhost in the directory *"/etc/nginx/sites-available"*.
-
-In this tutorial, I'll create a new virtualhost configuration file named *"reverse.conf"*. Just got to the directory and create new file with vim:
+创建新文件：
 
 ```
 sudo nano /etc/nginx/sites-available/reverse.conf
 ```
 
-Paste the configuration below:
+复制下列配置：
 
 > 注意：You could try the following two commands to paste from the clipboard. Both of them should work.
 >
