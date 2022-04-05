@@ -35,5 +35,5 @@ steps:
     git init
     git add --all .
     git commit -m "GitHub action Auto Builder"
-    git push --quiet --force https://$DEPLOY_KEY@github.com/name/name.github.io.git master
+    git push --quiet --force https://$DEPLOY_KEY@github.com/so02iti01/sharktale.git master
 
