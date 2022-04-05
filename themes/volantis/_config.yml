@@ -148,7 +148,7 @@ article:
   body:
     # 文章顶部信息
     # 从 meta_library 中取
-    top_meta: [author, category, date, counter] #启用评论数量需在此添加
+    top_meta: [author, category, date] #启用评论数量需在此添加
     # ----------------
     # 文章页脚组件
     footer_widget:
@@ -249,9 +249,8 @@ comments:
   title: <i class='fa-solid fa-comments'></i> 评论
   subtitle:
   service: giscus
-  # 可选评论系统 #
 
-  # artalk
+ # artalk
   # https://artalk.js.org/
   # https://github.com/ArtalkJS/Artalk
   artalk:
@@ -277,14 +276,14 @@ comments:
       light: "light" # https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/css/giscus/light.css
       dark: "dark" # https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/css/giscus/dark.css
     # 以下配置按照 yml 格式增删填写即可
-    # repo: xxx/xxx
-    # repo-id: xxx
-    # category: xxx
-    # category-id: xxx
-    # mapping: "pathname"
-    # reactions-enabled: "1"
-    # emit-metadata: "0"
-    # lang: "zh-CN"
+    repo: so02iti01/sharktale
+    repo-id: R_kgDOHDLshA
+    category: Annoucements
+    category-id: DIC_kwDOHDLshM4COPgg
+    mapping: "og:title"
+    reactions-enabled: "1"
+    emit-metadata: "0"
+    lang: "zh-CN"
 
   # beaudar
   # https://beaudar.lipk.org/
@@ -428,7 +427,9 @@ comments:
     pageSize: 10 # 评论每页显示数量
     lang: zh-CN
     visitor: true
-
+  
+  
+  
 
 ############################### Comments ############################### > end
 
@@ -533,7 +534,7 @@ sidebar:
           text: '本站总字数：'   # 需要启用 wordcount
           unit: '字'
         visitcounter:
-          service: busuanzi  # busuanzi, leancloud
+          service:   # busuanzi, leancloud
           siteuv:
             enable: false
             text: '本站访客数：'

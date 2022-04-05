@@ -13,31 +13,31 @@ tags:
 
 ## Apache 和 NGINX 对比
 
-根据[NGINX vs Apache – Choosing the Best Web Server in 2022](https://www.hostinger.com/tutorials/nginx-vs-apache-what-to-use/)，Apache 和 NGINX的优缺点主要为：
+根据[NGINX vs Apache – Choosing the Best Web Server in 2022](https://www.hostinger.com/tutorials/nginx-vs-apache-what-to-use/)，`Apache`  和  `NGINX` 的优缺点主要为：
 
 - Apache 一次处理一个连接请求，NGINX 可以同时处理多个连接请求。
 - NGINX 提供静态内容更快，但是需要另外的软件帮助处理动态内容，而 Apache 可以自己提供动态内容。
-- Apache 提供 **.htaccess** 文件，可以在不更改主服务器设置，就能改变网站的设置。
+- Apache 提供 `.htaccess` 文件，可以在不更改主服务器设置，就能改变网站的设置。
 
-> 性能最好的方法是：把 **NGINX** 作为反向代理，放在 **Apache** 前面。
+> 性能最好的方法是：把  `NGINX` 作为反向代理，放在  `Apache` 前面。
 
-所以，我将先后安装 **Apache** 和 **NGINX**。
+所以，我将先后安装 `Apache` 和 `NGINX`。
 
 ## 安装和配置 Apache
 
 > 在安装NGINX之前，需要先安装并配置好Apache。
 
-很可能你的 VPS 已经安装了 **Apache**，输入下列命令可以检查是否存在 **Apache**。
+很可能你的 VPS 已经安装了 `Apache`，输入下列命令可以检查是否存在 `Apache`。
 
 ```
 sudo systemctl status apache2
 ```
 
-显示 VPS 没有安装 **Apache**。
+显示 VPS 没有安装 `Apache`。
 
 ![image-20220331204125554](C:\Users\19914\AppData\Roaming\Typora\typora-user-images\image-20220331204125554.png)
 
-自己安装 **Apache**：
+自己安装 `Apache`：
 
 ```
 sudo apt install apache2
@@ -45,13 +45,13 @@ sudo apt install apache2
 
 ![image-20220331204333918](C:\Users\19914\AppData\Roaming\Typora\typora-user-images\image-20220331204333918.png)
 
-如果 VPS 之前有防火墙，需要为 **Apache** 新建立一条 rule：
+如果 VPS 之前有防火墙，需要为 `Apache` 新建立一条 rule：
 
 ```
 sudo ufw allow “Apache Full”
 ```
 
-再次检查 **Apache** 是否存在：
+再次检查 `Apache` 是否存在：
 
 ```
 sudo systemctl status apache2
@@ -61,7 +61,7 @@ sudo systemctl status apache2
 
 > 输入 q 离开上面的页面
 
-最后，打开一个自己电脑上的浏览器，输入 VPS 的 IP 地址，如果出现下面的页面，就是 **Apache** 运行好了。
+最后，打开一个自己电脑上的浏览器，输入 VPS 的 IP 地址，如果出现下面的页面，就是 `Apache` 运行好了。
 
 ![image-20220331205630378](C:\Users\19914\AppData\Roaming\Typora\typora-user-images\image-20220331205630378.png)
 
@@ -71,9 +71,9 @@ sudo systemctl status apache2
 sudo apt-get install mysql-server
 ```
 
-> 安装过程中，会要求设置 **root**  user 的密码，不要让密码为空白。
+> 安装过程中，会要求设置 `root`  user 的密码，不要让密码为空白。
 >
-> 如果没有提示设置 **root** 密码，可以输入
+> 如果没有提示设置 `root` 密码，可以输入
 >
 > ```
 > mysql_secure_installation
@@ -81,13 +81,13 @@ sudo apt-get install mysql-server
 >
 > 进行初始密码的设定
 
-检查 **MySQL** 服务的状态：
+检查 `MySQL` 服务的状态：
 
 ```
 sudo systemctl status mysql
 ```
 
-如果 **MySQL** 工作正常，会输出：
+如果 `MySQL` 工作正常，会输出：
 
 ![image-20220331211011132](C:\Users\19914\AppData\Roaming\Typora\typora-user-images\image-20220331211011132.png)
 
@@ -95,7 +95,7 @@ sudo systemctl status mysql
 
 ## 安装PHP
 
-> 可能需要安装 **nano** 文本编辑器： 
+> 可能需要安装 `nano` 文本编辑器： 
 >
 > sudo apt-get install nano
 
@@ -105,25 +105,25 @@ sudo systemctl status mysql
 sudo apt-get upgrade
 ```
 
-安装 **PHP**：
+安装 `PHP`：
 
 ```
 sudo apt-get install php
 ```
 
-测试 **PHP** 运行状态：
+测试 `PHP` 运行状态：
 
-​	简单的方法是，输入：**php -v**
+​	简单的方法是，输入：`php -v`
 
 ​	复杂一点的方法是：
 
-> 在 **/var/www/html** 目录下，新建一个 **test.php**，并用 **nano** 打开。这个目录被称为 **webroot**，是 **Apache** 查找网页的缺省位置（如果没有被设置从哪里找的话）。
+> 在 `/var/www/html` 目录下，新建一个 `test.php`，并用 `nano` 打开。这个目录被称为 `webroot`，是 `Apache` 查找网页的缺省位置（如果没有被设置从哪里找的话）。
 >
 > ```
 > sudo nano /var/www/html/test.php
 > ```
 >
-> 在新建的文件中，输入之后，按 **CTRL + X** ，**Y** 保存后 **ENTER** 离开。
+> 在新建的文件中，输入之后，按 `CTRL + X` ，`Y` 保存后 `ENTER` 离开。
 >
 > ```
 > <?php
@@ -131,7 +131,7 @@ sudo apt-get install php
 > ?>
 > ```
 >
-> 打开浏览器，输入网址来测试 **PHP**
+> 打开浏览器，输入网址来测试 `PHP`
 >
 > ```
 > http://<your_vps_ip_adress>/test.php
@@ -158,7 +158,7 @@ sudo do-release-upgrade
 
 参考官网文档：[Upgrading|Ubuntu](https://ubuntu.com/server/docs/upgrade-introduction)
 
-更新好了，允许 **reboot** 后重新连接，显示：
+更新好了，允许 `reboot` 后重新连接，显示：
 
 ![image-20220401112506423](C:\Users\19914\AppData\Roaming\Typora\typora-user-images\image-20220401112506423.png)
 
@@ -186,13 +186,13 @@ Listen 8080
 
 > 8000 和 8080 都是 HTTP 协议的备用端口号
 
-在 **/etc/apache2/sites-available/** 目录下，创建文件 **000-default.conf**
+在 `/etc/apache2/sites-available/` 目录下，创建文件 `000-default.conf`
 
 ```
 sudo nano /etc/apache2/sites-available/000-default.conf
 ```
 
-确保在 **000-default.conf** 文件中，配置如下：（把端口改为 **8080**，改为 8000 也可以 ）
+确保在 `000-default.conf` 文件中，配置如下：（把端口改为 `8080`，改为 8000 也可以 ）
 
 ```
 <VirtualHost *:8080>
@@ -235,10 +235,10 @@ sudo nano /etc/nginx/sites-available/reverse.conf
 
 > 注意：You could try the following two commands to paste from the clipboard. Both of them should work.
 >
-> 1. **Ctrl+Shift+v**
-> 2. **Shift+Insert**
+> 1. `Ctrl+Shift+v`
+> 2. `Shift+Insert`
 >
-> The **Ctrl+U** command only allows pasting text that was copied or cut from within nano itself, hence the reason the command is not working.
+> The `Ctrl+U` command only allows pasting text that was copied or cut from within nano itself, hence the reason the command is not working.
 
 ```
 server {

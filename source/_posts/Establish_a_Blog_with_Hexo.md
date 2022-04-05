@@ -31,7 +31,7 @@ hexo命令：
  $ hexo <command>
 ```
 
-如果输入不存在的**command**（比如：hexo -s），会显示出hexo相关命令的帮助。
+如果输入不存在的`command`（比如：hexo -s），会显示出hexo相关命令的帮助。
 
 生成一个名为<filename>的，新的markdown文件（位于\source\_posts\）：
 
@@ -39,7 +39,7 @@ hexo命令：
 $ hexo new "<filename>"
 ```
 
-**注意：文章内部不要使用 H1 标题。**
+> 注意：文章内部不要使用 H1 标题。
 
 编译形成网页（使用http://localhost:4000/访问本地主机，即可看到效果） ：
 
@@ -59,17 +59,17 @@ $ git commit -m "[descriptive messgage]"
 $ git push origin Hexo    # 将本地branch的内容全部上传到与之关联的remote branch
 ```
 
-说明：
-
-**$ git add**			Snapshots the file in preparation for versioning
-
-**$ git commit -m "<descriptive messgage>"** 			Records file snapshots permanently in version history
-
-**$ git push**			upload all local branch commits to [GitHub](https://github.com/)
-
-**git**			an open source, distributed version-control system
-
-**commit**			a Git object, a snapshot of your entire repository compressed into a SHA
+> 说明：
+>
+> `$ git add`			Snapshots the file in preparation for versioning
+>
+> `$ git commit -m "<descriptive messgage>"` 			Records file snapshots permanently in version history
+>
+> `$ git push`			upload all local branch commits to [GitHub](https://github.com/)
+>
+> `git`			an open source, distributed version-control system
+>
+> `commit`			a Git object, a snapshot of your entire repository compressed into a SHA
 
 2. 把文章推到master分支
 
@@ -77,15 +77,16 @@ $ git push origin Hexo    # 将本地branch的内容全部上传到与之关联�
 $ hexo g -d
 ```
 
-**$ hexo g**	Generate static files, options: 
-
-| Command               | Description                                                  |
-| :-------------------- | ------------------------------------------------------------ |
-| -b 或者 --bail        | Raise an error if any unhandled exception is thrown during generation |
-| -c 或者 --concurrency | Maximum number of files to be generated in parallel. Default is infinity |
-| **-d 或者 --deploy**  | **Deploy after generated**                                   |
-| -f 或者--force        | Force regenerate                                             |
-| -w 或者--watch        | Watch file changes                                           |
+> `$ hexo g`	Generate static files, options: 
+>
+> | Command               | Description                                                  |
+> | :-------------------- | ------------------------------------------------------------ |
+> | -b 或者 --bail        | Raise an error if any unhandled exception is thrown during generation |
+> | -c 或者 --concurrency | Maximum number of files to be generated in parallel. Default is infinity |
+> | `-d 或者 --deploy`    | `Deploy after generated`                                     |
+> | -f 或者--force        | Force regenerate                                             |
+> | -w 或者--watch        | Watch file changes                                           |
+>
 
 
 
