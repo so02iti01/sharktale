@@ -23,7 +23,7 @@ tags:
 
 ## 使用Hexo blog
 
-Hexo采用2个branch，一个
+Hexo建议采用2个branch。所以我的博客仓库有2个分支，一个放置博客源代码（blog分支），一个放置产生的HTML文件（master分支）
 
 hexo命令：
 
