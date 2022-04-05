@@ -57,7 +57,7 @@ navbar:
     title: sharktale
   menu: # # 下面这个工具栏，不在封面图片上！！！
     - name: 首页
-      icon: fa-solid fa-rss
+      icon: fas fa-home
       url: /
     - name: 标签
       icon: fa-solid fa-tags
@@ -93,7 +93,7 @@ cover:
   search: Search in the sea... # search bar placeholder
   features: # 下面这个工具栏，出现在封面图片上
     - name: 首页
-      icon: fa-solid fa-rss
+      icon: fas fa-home
       img: #/media/twemoji/assets/svg/lightbub.svg 
       url: /
     - name: 标签
