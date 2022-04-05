@@ -4,36 +4,36 @@ on:
   push:
     branches: [ blog ]
 
-jobs: deploy
+jobs: 
   build: 
 
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
 
-steps: 
-- uses: actions/checkout@v2 #拉取仓库文件
+    steps: 
+    - uses: actions/checkout@v2 #拉取仓库文件
 
-- name: Set up Node.js
-  uses: actions/setup-node@v1
-  with:
-    node-version: 17
-    
-- name: Install dependencies
-  run: |
-    npm install -g hexo-cli
-    npm install
-    git config --global user.name "so02iti01"
-    git config --global user.email "Yoozy01@protonmail.com"
-- name: Deploy
-  env:
-    DEPLOY_KEY: ${{ secrets.HEXO_GENERATE_AND_DEPLOY }}
-  run: |
-    hexo clean
-    hexo generate
-    cd ./public
-    git init
-    git add --all .
-    git commit -m "GitHub action Auto Builder"
-    git push --quiet --force https://$DEPLOY_KEY@github.com/so02iti01/sharktale.git master
+    - name: Set up Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 17
+
+    - name: Install dependencies
+      run: |
+        npm install -g hexo-cli
+        npm install
+        git config --global user.name "so02iti01"
+        git config --global user.email "Yoozy01@protonmail.com"
+    - name: Deploy
+      env:
+        DEPLOY_KEY: ${{ secrets.HEXO_GENERATE_AND_DEPLOY }}
+      run: |
+        hexo clean
+        hexo generate
+        cd ./public
+        git init
+        git add --all .
+        git commit -m "GitHub action Auto Builder"
+        git push --quiet --force https://$DEPLOY_KEY@github.com/so02iti01/sharktale.git master
 
