@@ -246,7 +246,7 @@ comments:
     # 以下配置按照 yml 格式增删填写即可
     repo: so02iti01/sharktale
     repo-id: R_kgDOHDLshA
-    category: announcements
+    category: Announcements
     category-id: DIC_kwDOHDLshM4COPgg
     mapping: "og:title"
     reactions-enabled: "1"
