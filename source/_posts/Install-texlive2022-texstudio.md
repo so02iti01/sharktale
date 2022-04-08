@@ -19,4 +19,4 @@ install-tl-windows -repository https://mirrors.tuna.tsinghua.edu.cn/tlpretest/ -
 选择安装位置，以及是否安装 TexWorks 前端，之后进入安装。这里由于不习惯 TeXworks，所以直接没有安装 TeXworks。
 ![ScreenShot_20220408130135](D:\Sharktale\source\images\ScreenShot_20220408130135.jpeg)
 完成安装 `TeXLive2022`，安装 `TeXStudio` 就是一般软件的安装方法。
-![ScreenShot_20220408144334](D:\Sharktale\source\images\ScreenShot_20220408144334.jpeg)
+![ScreenShot_20220408144334](~\source\images\ScreenShot_20220408144334.jpeg)
