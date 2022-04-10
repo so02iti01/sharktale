@@ -172,7 +172,7 @@ sudo apt-get install nginx
 ```
 ### 为 NGINX 配置 Apache
 
-sudo nano（用nano，不要用vim，我觉得vim太难用了，可以的话还要记得删除vim的包）
+sudo nano（我觉得vim太难用了，可以的话我还要记得删除vim的包）
 
 ```
 sudo nano /etc/apache2/ports.conf
@@ -186,18 +186,16 @@ Listen 8080
 
 > 8000 和 8080 都是 HTTP 协议的备用端口号
 
-在 `/etc/apache2/sites-available/` 目录下，创建文件 `000-default.conf`
+在 `/etc/apache2/sites-available/` 目录下，创建文件 `000-default.conf` 和 `001-default.conf` 
 
 ```
 sudo nano /etc/apache2/sites-available/000-default.conf
 ```
 
-确保在 `000-default.conf` 文件中，配置如下：（把端口改为 `8080`，改为 8000 也可以 ）
+确保在 `000-default.conf` 和 `001-default.conf` 文件中，配置如下：（把端口改为 `8080` ）
 
 ```
 <VirtualHost *:8080>
-    ServerName www.reverse.com
-    ServerAlias reverse.com
     ServerAdmin webmaster@localhost
     DocumentRoot /var/www/html
     ErrorLog ${APACHE_LOG_DIR}/error.log
@@ -205,8 +203,46 @@ sudo nano /etc/apache2/sites-available/000-default.conf
 </VirtualHost>
 ```
 
-设置完成后，按照上面 PHP 安装时候，检查是否正确的方法，查看浏览器网页：
+Save the file and activate the new configuration file:
 
+```bash
+sudo a2ensite 001-default
+```
+
+Then reload Apache:
+
+```bash
+sudo systemctl reload apache2
+```
+
+Install the `net-tools` package which contains the `netstat` command:
+
+```bash
+sudo apt install net-tools
+```
+
+Verify that Apache is now listening on `8080`:
+
+```bash
+sudo netstat -tlpn
+```
+
+The output should look like the following example, with `apache2` listening on `8080`:
+
+```
+OutputActive Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address     Foreign Address      State    PID/Program name
+tcp        0      0 0.0.0.0:22        0.0.0.0:*            LISTEN   1086/sshd
+tcp6       0      0 :::8080           :::*                 LISTEN   4678/apache2
+tcp6       0      0 :::22             :::*                 LISTEN   1086/sshd
+```
+
+![image-20220408214104980](C:\Users\19914\AppData\Roaming\Typora\typora-user-images\image-20220408214104980.png)
+
+Once you verify that Apache is listening on the correct port, you can configure support for PHP and FastCGI.
+
+> 设置完成后，按照上面 PHP 安装时候，检查是否正确的方法，查看浏览器网页：
+>
 > <ip 地址>：8080/info.php
 
 ### 为 Apache 配置 NGINX
