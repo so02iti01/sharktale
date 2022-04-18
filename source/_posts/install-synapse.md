@@ -118,8 +118,7 @@ sudo ln -s /etc/nginx/sites-available/synapse.matrix.org.conf /etc/nginx/sites-e
 
 以及
 
-> ## DNS results
->
+> DNS results
 > server name/.well-known result contains explicit port number: no SRV lookup done
 
 ## 注册新用户
