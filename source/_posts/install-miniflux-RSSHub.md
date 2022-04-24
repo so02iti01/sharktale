@@ -26,6 +26,10 @@ tags:
 
 4. 把得到的 URL 填入 miniflux 的订阅界面
 
-## 其余（Newletter）
+## miniflux 抓取全文
+
+在 miniflux 选择 Feeds > 一个订阅的空间 > Edit > `Fetch original content` (需要页面拉到最下面)
+
+## 其余（Newletter）订阅
 
 这部分由于还没开始用，所以就没写。用到哪里，写到哪里~
