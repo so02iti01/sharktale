@@ -1,2 +1,2 @@
-# so02iti01.github.io
+# Sharktale
 a blog based on Hexo&amp;volantis
