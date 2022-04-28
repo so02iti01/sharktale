@@ -277,11 +277,13 @@ sidebar:
       jinrishici: false # Poetry Today. You can set a string, and it will be displayed when loading fails.
       social:
         - icon: fas fa-cookie-bite
-          url: \ #https://blog.sharktale.xyz
+          url: \
         - icon: fa-solid fa-envelope
           url: mailto:Yoozy01@protonmail.com
-        #- icon: fab fa-github
-        #  url: https://github.com/so02iti01/
+        - icon: fab fa-github
+          url: https://github.com/so02iti01/
+        - icon: fab fa-mastodon
+          url: https://moresci.sale/@Icecream       
     # ---------------------------------------
     # toc widget (valid only in articles)
     toc:
