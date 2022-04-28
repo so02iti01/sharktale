@@ -280,8 +280,10 @@ sidebar:
           url: /
         - icon: fa-solid fa-envelope
           url: mailto:Yoozy01@protonmail.com
-        #- icon: fab fa-github
-        #  url: https://github.com/so02iti01/
+        - icon: fab fa-github
+          url: https://github.com/so02iti01/
+        - icon: fab fa-mastodon
+          url: https://moresci.sale/@Icecream       
     # ---------------------------------------
     # toc widget (valid only in articles)
     toc:
