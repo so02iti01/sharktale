@@ -272,12 +272,12 @@ sidebar:
       avatar: https://picsum.photos/150 # /media/twemoji/assets/svg/shark.svg 
       shape: rectangle # circle, rectangle
       url: /about/
-      title:  Yoozy
+      title:  <a rel="me" href="https://moresci.sale/@Icecream">Yoozy</a>
       subtitle: 一花一世界，一叶一菩提
       jinrishici: false # Poetry Today. You can set a string, and it will be displayed when loading fails.
       social:
         - icon: fas fa-cookie-bite
-          url: \ #https://blog.sharktale.xyz
+          url: /
         - icon: fa-solid fa-envelope
           url: mailto:Yoozy01@protonmail.com
         #- icon: fab fa-github
