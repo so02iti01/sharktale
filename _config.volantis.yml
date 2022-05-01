@@ -190,7 +190,7 @@ article:
       # https://volantis.js.org/advanced-settings/#多人协同
       author: 
         avatar: /media/twemoji/assets/svg/atom.svg
-        name: Yoozy
+        name: 一只脆脆鲨
         url: /
       # 文章创建日期
       date:
@@ -272,7 +272,7 @@ sidebar:
       avatar: https://picsum.photos/150 # /media/twemoji/assets/svg/shark.svg 
       shape: rectangle # circle, rectangle
       url: /about/
-      title:  <a rel="me" href="https://moresci.sale/@Icecream">Yoozy</a>
+      title:  <a rel="me" href="https://moresci.sale/@Icecream">一只脆脆鲨</a>
       subtitle: 一花一世界，一叶一菩提
       jinrishici: false # Poetry Today. You can set a string, and it will be displayed when loading fails.
       social:
@@ -419,7 +419,7 @@ site_footer:
     #<span id="lc-sv">本站总访问量为 <span id='number'><i class="fa-solid fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
     #<span id="lc-uv">访客数为 <span id='number'><i class="fa-solid fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
   # site copyright
-  copyright: '[Copyright © 2022- Yoozy](/)'
+  copyright: '[Copyright © 2022- 一只脆脆鲨](/)'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
   br: '<br>'
 ############################### Site Footer ############################### > end
