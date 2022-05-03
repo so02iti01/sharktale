@@ -7,7 +7,7 @@ tags:
 - RSS
 ---
 
-> 安装部分参考 [Docker 快速搭建 Miniflux + RSSHub ](https://docs.rsshub.app/)，讲解细致，全程复制粘贴就可以完成！所以不需要我多写啦。
+> 安装部分参考 [Docker 快速搭建 Miniflux + RSSHub ](https://www.jkg.tw/p3246/)，讲解细致，全程复制粘贴就可以完成！所以不需要我多写啦。
 
 这里主要想记录一下使用 `miniflux + RSSHub` 进行 `RSS订阅` 的笔记~
 
