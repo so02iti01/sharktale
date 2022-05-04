@@ -4,8 +4,8 @@
 
 # Site
 title: Sharktale
-favicon: /media/twemoji/assets/svg/atom.svg
-subtitle: 捅了一个鲨鱼窝'
+favicon: 
+subtitle: ''
 description: ''
 keywords: 
 author: Yoozy
@@ -99,6 +99,12 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: volantis
+
+# Feed
+feed:
+  type: atom
+  path: /atom.xml
+  limit: 5
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment

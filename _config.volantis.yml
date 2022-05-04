@@ -280,8 +280,10 @@ sidebar:
           url: /
         - icon: fa-solid fa-envelope
           url: mailto:Yoozy01@protonmail.com
-        - icon: fab fa-github
-          url: https://github.com/so02iti01/
+        - icon: fa-solid fa-rss
+          url: /atom.xml   
+      #  - icon: fab fa-github
+      #    url: https://github.com/so02iti01/
        # - icon: fab fa-mastodon
        #   url: https://moresci.sale/@Icecream       
     # ---------------------------------------
@@ -402,26 +404,24 @@ tag_plugins:
 ############################### Site Footer ############################### > start
 site_footer:
   # layout of footer: [aplayer, social, license, info, copyright]
-  layout: [license, copyright, thanks]
-  social:
-    - icon: #fa-solid fa-rss
-      url:
-    # or
-    - img:
-      url:
-    # or
-    - avatar:
-      url:
-  # site source
-  source: https://github.com/volantis-x/volantis-docs/
+  layout: [sitethanks, sitelicense, sitecopyright]
+  #social:
+  #  - icon: #fa-solid fa-rss
+  #    url:
+  #  # or
+  #  - img:
+  #    url:
+  #  # or
+  #  - avatar:
+  #    url:
   # analytics using leancloud
   #analytics: >
     #<span id="lc-sv">本站总访问量为 <span id='number'><i class="fa-solid fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
     #<span id="lc-uv">访客数为 <span id='number'><i class="fa-solid fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
-  # site copyright
-  copyright: '<[Copyright © 2022-' [一只脆脆鲨](a rel="me" href="https://moresci.sale/@Icecream")]>'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
-  thanks: '<Proudly Powered by [Hexo](https://hexo.io/) & [volantis](https://github.com/volantis-x/volantis-docs/)>(/)'
+  sitethanks: 'Proudly Powered by [Hexo](https://hexo.io/) & [volantis](https://github.com/volantis-x/volantis-docs/) & [Cloudflare Pages](https://pages.cloudflare.com/)' 
+  sitelicense: 'Blog content follows the [CC BY-NC-SA 4.0 License](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)'
+  sitecopyright: <span><a rel="me" href="https://moresci.sale/@Icecream">Copyright © 2022 一只脆脆鲨</span>
 ############################### Site Footer ############################### > end
 
 ############################### Plugins ############################### > start
