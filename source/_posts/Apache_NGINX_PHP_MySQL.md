@@ -11,6 +11,8 @@ tags:
 - reverse
 ---
 
+其实一般情况下， Apache 和 NGINX 安装一个就好了......总之，这一篇只是我自己的一种记录，请千万不要照着这一篇去做。
+<!-- more -->
 ## Apache 和 NGINX 对比
 
 根据[NGINX vs Apache – Choosing the Best Web Server in 2022](https://www.hostinger.com/tutorials/nginx-vs-apache-what-to-use/)，`Apache`  和  `NGINX` 的优缺点主要为：
