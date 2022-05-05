@@ -65,7 +65,7 @@ services:
 
 > 如果在 docker-compose.yml 中选择了其它端口号，也要在这里换成别的端口号
 
-# 设置 Caddy
+## 设置 Caddy
 
 由于这台机器上已经安装了 Caddy（在之前安装 miniflux 的时候），所以这里直接继续使用 Caddy
 
@@ -128,4 +128,13 @@ sudo systemctl daemon-reload   # 这一行特别重要
 sudo systemctl enable caddy.service
 sudo systemctl start caddy.service
 ```
+## Nextcloud Security
+Nextcloud 提供了 [Nextcloud Security Scan](https://scan.nextcloud.com/)，可以从外部对服务器进行检查，根据检查的结果反馈进行安全提升。
 
+如果显示 `__Host-Prefix` 有问题，参考 [Overwrite parameters](https://docs.nextcloud.com/server/16/admin_manual/configuration_server/reverse_proxy_configuration.html#overwrite-parameters)，在 `config/config.php` 中添加这下面这行
+```
+'overwriteprotocol' => 'https',
+```
+> 这里提到的 `config/config.php` ，是 Nextcloud 存储 config 的地方，可以采用 `find /var -name "config.php"` 查找
+
+还要在 Nextcloud 的用户界面内，点击右上角的头像，选择 Setting > Overview 进行安全检查，会出现很多警告，按照提示进行进一步更改。
