@@ -278,14 +278,12 @@ sidebar:
       social:
         - icon: fas fa-cookie-bite
           url: /
-        - icon: fa-solid fa-envelope
-          url: mailto:Yoozy01@protonmail.com
         - icon: fa-solid fa-rss
           url: /atom.xml   
       #  - icon: fab fa-github
-      #    url: https://github.com/so02iti01/
+      #    url: 
        # - icon: fab fa-mastodon
-       #   url: https://moresci.sale/@Icecream       
+       #   url:    
     # ---------------------------------------
     # toc widget (valid only in articles)
     toc:
