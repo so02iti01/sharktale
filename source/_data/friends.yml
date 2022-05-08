@@ -14,4 +14,13 @@
       screenshot:             # 截图
       keywords:           # 关键词
       description:            # 描述
+- group: More Bloggers                                       # 分组标题
+  description:           # 分组描述
+  items:
+    - title: Plaskier       # 名称
+      avatar: https://s2.loli.net/2022/05/08/iSLQXbHGPopvwaU.png    # 头像，建议放在图床网站上
+      url: https://plaskier.vercel.app/                 # 链接
+      screenshot:             # 截图
+      keywords: 怪猎崛起；Obsidian          # 关键词
+      description:  总之欢迎你来！和您隔着屏幕热情地握手！          # 描述
 # 这些数据被转成 HTML 标签插入到友链页面的 <!-- more --> 部分。
