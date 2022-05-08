@@ -15,7 +15,7 @@ title: 友链 # 可选，这是友链页的标题e
 
 - **建议采用的申请格式**：
 
-  名 称：Yoozy
+  名 称：一只脆脆鲨
   头像链接：https://picsum.photos/200/300
   主页链接：http://blog.sharktale.xyz/
   说明信息：一花一世界，一叶一菩提
