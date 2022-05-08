@@ -4,6 +4,9 @@ date: 2022-04-04 15:18:28
 tags: 
 - 普鲁斯特问卷
 - 我
+password: olivia
+message: Hey, password is required here.
+wrong_pass_message: Oh, this is an invalid password. Check and try again, please.
 ---
 
 问卷内容参考`法国文化中心公众号`的版本。
