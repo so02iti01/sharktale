@@ -234,24 +234,39 @@ article:
 comments:
   title: <i class='fa-solid fa-comments'></i> 评论
   subtitle:
-  service: giscus
-  # 可选评论系统 #
-  # 选择了giscus
+  service: waline
+  # 可选评论系统 
+  waline:
+    js: https://npm.elemecdn.com/@waline/client@1.5.4/dist/Waline.min.js
+    path: # 全局评论地址 目前设置全局评论地址后visitor失效,这是waline的问题
+    placeholder: 快来评论吧~  # 评论占位提示
+    # imageHosting: https://7bu.top/api/upload?token=7ffe9d626fe4315c953758efbdb6ee2e # 图床api（默认注释使用base64）
+    # 其他配置项按照yml格式继续填写即可 除了 [el path placeholder uploadImage] 选项
+    meta: [nick,mail,link] # waline comment header info
+    requiredFields: [nick,mail]
+    serverURL: https://waline-test-opj88q3ci-h2oset-protonmailc.vercel.app/ # Waline 的服务端地址（必填） 测试用地址: https://waline-ruddy.vercel.app
+    avatar: robohash # gravatar style https://waline.js.org/client/basic.html#avatar
+    avatarCDN: #https://sdn.geekzu.org/avatar/
+    pageSize: 10 # 评论每页显示数量
+    lang: zh-CN
+    visitor: true
+  
+  # giscus
   # https://giscus.app
   # https://github.com/laymonage/giscus
-  giscus:  
-    theme:
-      light: "light" # https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/css/giscus/light.css
-      dark: "dark" # https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/css/giscus/dark.css
-    # 以下配置按照 yml 格式增删填写即可
-    repo: so02iti01/sharktale
-    repo-id: R_kgDOHDLshA
-    category: Announcements
-    category-id: DIC_kwDOHDLshM4COPgg
-    mapping: "og:title"
-    reactions-enabled: "1"
-    emit-metadata: "0"
-    lang: "zh-CN"
+  #giscus:  
+  #  theme:
+  #    light: "light" # https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/css/giscus/light.css
+  #    dark: "dark" # https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/css/giscus/dark.css
+  #  # 以下配置按照 yml 格式增删填写即可
+  #  repo: so02iti01/sharktale
+  #  repo-id: R_kgDOHDLshA
+  #  category: Announcements
+  #  category-id: DIC_kwDOHDLshM4COPgg
+  #  mapping: "og:title"
+  #  reactions-enabled: "1"
+  #  emit-metadata: "0"
+  #  lang: "zh-CN"
 
 ############################### Comments ############################### > end
 
