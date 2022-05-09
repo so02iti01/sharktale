@@ -432,7 +432,7 @@ site_footer:
     #<span id="lc-sv">本站总访问量为 <span id='number'><i class="fa-solid fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
     #<span id="lc-uv">访客数为 <span id='number'><i class="fa-solid fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
   # You can add your own property here. (Support markdown, for example: br: '<br>')
-  sitethanks: 'Proudly Powered by [Hexo](https://hexo.io/) & [volantis](https://github.com/volantis-x/volantis-docs/) & [Cloudflare Pages](https://pages.cloudflare.com/)' 
+  sitethanks: 'Proudly Powered by [Hexo](https://hexo.io/) & [volantis](https://github.com/volantis-x/volantis-docs/) & [Cloudflare Pages](https://pages.cloudflare.com/) & [Vercel](https://vercel.com/)' 
   sitelicense: 'Blog content follows the [CC BY-NC-SA 4.0 License](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)'
   sitecopyright: <span><a rel="me" href="https://moresci.sale/@Icecream">Copyright © 2022 一只脆脆鲨</span>
 ############################### Site Footer ############################### > end
