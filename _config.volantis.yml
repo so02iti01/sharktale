@@ -358,7 +358,7 @@ sidebar:
         title: 站点信息
       type:
         article:
-          enable: false
+          enable: true
           text: '文章数目：'
           unit: '篇'
         runtime:
@@ -367,11 +367,11 @@ sidebar:
           text: '已运行时间：'
           unit: '天'
         wordcount:
-          enable: false
+          enable: true
           text: '本站总字数：'   # 需要启用 wordcount
           unit: '字'
         visitcounter:
-          service: busuanzi  # busuanzi, leancloud
+          service: leancloud  # busuanzi, leancloud
           siteuv: 
             enable: false
             text: '本站访客数：'
@@ -417,7 +417,7 @@ tag_plugins:
 ############################### Site Footer ############################### > start
 site_footer:
   # layout of footer: [aplayer, social, license, info, copyright]
-  layout: [sitethanks, sitelicense, sitecopyright]
+  layout: [analytics, sitethanks, sitelicense, sitecopyright]
   #social:
   #  - icon: #fa-solid fa-rss
   #    url:
@@ -428,9 +428,9 @@ site_footer:
   #  - avatar:
   #    url:
   # analytics using leancloud
-  #analytics: >
-    #<span id="lc-sv">本站总访问量为 <span id='number'><i class="fa-solid fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
-    #<span id="lc-uv">访客数为 <span id='number'><i class="fa-solid fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
+  analytics: >
+    <span id="lc-sv">本站总访问量为 <span id='number'><i class="fa-solid fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
+    <span id="lc-uv">访客数为 <span id='number'><i class="fa-solid fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
   # You can add your own property here. (Support markdown, for example: br: '<br>')
   sitethanks: 'Proudly Powered by [Hexo](https://hexo.io/) & [volantis](https://github.com/volantis-x/volantis-docs/) & [Cloudflare Pages](https://pages.cloudflare.com/) & [Vercel](https://vercel.com/)' 
   sitelicense: 'Blog content follows the [CC BY-NC-SA 4.0 License](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)'
@@ -977,11 +977,11 @@ custom_css:
 
 ############################### Analytics ############################### > start
 analytics:
-  busuanzi: /libs/busuanzi/js/busuanzi.pure.mini.js #https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js
+  busuanzi: #/libs/busuanzi/js/busuanzi.pure.mini.js #https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js
   leancloud: # 请使用自己的 id & key 以防止数据丢失
-    app_id: # u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI
+    app_id: HredyqYLhfUNtiQWGcg5jHnv-MdYXbMMI
   # 你还需前往 leancloud 创建应用并填写下面 leancloud 相关配置
-    app_key: # jfHtEKVE24j0IVCGHbvuFClp
+    app_key: LH2Rrgi3E8QUIu684jqWkT3B
     custom_api_server: # 国际版一般不需要写，除非自定义了 API Server
 ############################### Analytics ############################### > end
 
