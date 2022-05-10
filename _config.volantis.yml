@@ -89,7 +89,7 @@ cover:
   background: https://s2.loli.net/2022/03/21/KuchUvIwRaQijD7.jpg # shark cover
   logo: /media/twemoji/assets/svg/atom.svg
   title: 'Sharktale'
-  subtitle: 
+  subtitle: '遇见一只脆脆鲨'
   search: Search in the sea... # search bar placeholder
   features: # 下面这个工具栏，出现在封面图片上
     - name: 首页
