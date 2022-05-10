@@ -22,6 +22,7 @@ jobs:
     - name: Install dependencies
       run: |
         npm install -g hexo-cli
+        npm install --save hexo-blog-encrypt
         npm install
         git config --global user.name "so02iti01"
         git config --global user.email "Yoozy01@protonmail.com"
