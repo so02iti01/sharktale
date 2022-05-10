@@ -499,8 +499,8 @@ plugins:
     copy_code: true
     # 如果开启以下配置, hexo.config.highlight.enable 需要设置为 false ; hexo.config.highlight.enable 设置为 true, 则以下配置无效
     # # 不再支持 v11.1.0 以下版本
-    # js: https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.2.0/build/highlight.min.js # Please set hexo.config.highlight.enable = false !!!
-    # css: https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.2.0/build/styles/default.min.css
+    js: https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.2.0/build/highlight.min.js # Please set hexo.config.highlight.enable = false !!!
+    css: https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.2.0/build/styles/default.min.css
     # # # more: https://www.jsdelivr.com/package/npm/highlight.js?path=styles
 
   # prismjs
@@ -835,9 +835,9 @@ color_scheme:
     # 卡片上的普通文字
     text: '#444'
 
-    # 区块和代码块背景色
-    block: '#f6f6f6'
-    # 代码块高亮时的背景色
+    # 区块和代码块背景色(填充)
+    block: '#f6f6f6'     
+    # 代码块高亮时的背景色(边框)
     codeblock: '#FFF7EA'
     # 行内代码颜色
     inlinecode:  '#4282d7'      # '#c74f00'
