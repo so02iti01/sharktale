@@ -135,7 +135,7 @@ article:
     # show split line or not
     line_style: solid # hidden, solid, dashed, dotted
     # show author
-    author: false # true, false
+    author: true # true, false
     # show readmore button
     readmore: auto # auto, always
   # 文章详情页面的文章卡片本体布局方案
@@ -191,7 +191,7 @@ article:
       author: 
         avatar: /media/twemoji/assets/svg/atom.svg
         name: 一只脆脆鲨
-        url: /
+        url: https://blog.sharktale.xyz/
       # 文章创建日期
       date:
         icon: fa-solid fa-calendar-alt

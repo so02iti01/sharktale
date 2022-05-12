@@ -1,4 +1,10 @@
-#Jon:
-#  name: Jon Snow
-#  avatar: https://cn.bing.com/th?id=AMMS_fc8f99fd41ebd737a71c4e13806db9a0&w=110&h=110&c=7&rs=1&qlt=80&pcl=f9f9f9&cdv=1&dpr=2&pid=16.1
-#  url: https://gameofthrones.fandom.com/wiki/Jon_Snow
+# 我
+Shark:
+  name: 一只脆脆鲨
+  avatar: /media/twemoji/assets/svg/atom.svg
+  url: https://blog.sharktale.xyz/
+# other authors
+Southfox:
+  name: 南狐(Southfox)
+  avatar: https://s2.loli.net/2022/03/25/DqQHZGE2NlropOc.png
+  url: https://blog.southfox.me/

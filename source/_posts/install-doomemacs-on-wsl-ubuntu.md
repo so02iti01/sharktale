@@ -1,20 +1,18 @@
 ---
 title: 在 WSL 上 Emacs 的安装与使用
 date: 2022-05-11 17:26:41
+author: Southfox
 tags:
 - WSL
 - Emacs
 - Doom Emacs
-password: southfox
-message: 因为一些操作我还没自己去试过，所以先设置一个密码
-wrong_pass_message: Check and try again, please.
 ---
 
 可以在 Windows 系统中使用 `Windows Subsystem for Linux (WSL)`，来搭载 `Emacs` 和 `Doom Emacs`。
 
 但是，千万不要直接 `sudo apt install emacs27`   ，安装的是 `emacs 26.3`，用不了 `doom emacs` 。操作根据 `doom emacs` 针对 wsl 的官方教程，在[这里](https://github.com/doomemacs/doomemacs/blob/master/docs/getting_started.org#with-wsl--ubuntu-1804-lts)。
 
-[狐狸](https://blog.southfox.me/)对这个笔记提供了大量支持。
+狐狸对这个笔记提供了大量支持，加上我实现不了 coauthor 功能，所以这一篇的作者就写狐狸啦~
 
 <!--more-->
 
@@ -88,9 +86,7 @@ SPC w q          # 退出现在聚焦的窗口
 ```
 
 > SPC 是空格键 space
-
-快捷命令参考：https://bag.southfox.me/share/627ba8471afe74.29141021
-
+>
 > 不过掌握最基础的 i 进入插入模式，然后 ESC 退出 :w 保存就行了
 
 ###  试试加包
@@ -98,24 +94,16 @@ SPC w q          # 退出现在聚焦的窗口
 `SPC f P` 是打开配置文件夹，选择 `init.el` 就可以编辑这个文件了。输入 `/org` 查找 org 字符串。按下`回车`就进入查找，移动到 `org 包`后按 `esc` 退出 查找模式，按下 `i` 进入插入模式，改成这样~
 
 ```elisp
-156        (org                                           
-157         +roam2                                                                       158         +pomodoro)
+156        (org
+157          +roam2
+158          +pomodoro)
 ```
 
-> 安装 `roam2` 和 `番茄时钟` (可选)
+> 这样就安装了 `roam2` 和 `番茄时钟` (可选)
 
-`init.el` 文件里 `elisp 语言`的注释是 `;;` 
-
-```
- (doom! :input
-       ;;chinese ←这
-       ;;japanese
-       ;;layout            ; auie,ctsrnm is the superior home row
-```
 
 按 `ESC` 退出 插入模式，按下 `:w` 回车保存文件。然后，`M-x` 输入 `reload` ，选择 `doom/reload` 重载配置，这样就会去安装包了
 
-> `vim 模式`有点不习惯也可以直接用 win 下的编辑器打开 `init.el` 文件，正好可以熟悉一下 `wsl` 里的文件放在哪个目录......毕竟要把自己的 `rime` 文件扔进 `wsl`  里……
 
 ### 关于rime 的包
 
@@ -127,9 +115,23 @@ SPC w q          # 退出现在聚焦的窗口
 
 > emacs 下的 rime 路径是 `~/.emacs/.local/etc/rime/`
 
+`vim 模式`有点不习惯也可以直接用 win 下的编辑器打开 `init.el` 文件，正好可以熟悉一下 `wsl` 里的文件放在哪个目录......毕竟要把自己的 `rime` 文件扔进 `wsl`  里……
+
+`init.el` 文件里 `elisp 语言`的注释是 `;;` 
+
+```
+ (doom! :input
+       ;;chinese ←这
+       ;;japanese
+       ;;layout            ; auie,ctsrnm is the superior home row
+```
+
+
 ### 开始写笔记
 
-​	`SPC .` 然后在一个路径下输入文件名，完成新建文件了，像 nano 一样
+`SPC .` 然后在一个路径下输入文件名，完成新建文件 (像 nano 一样)，就可以开始写笔记啦~
+
+写日记需要的包是 `org-roam 包`
 
 ### 玩游戏
 
