@@ -23,7 +23,7 @@ highlightjs-line-numbers.js 的安装，可以采用 Bower/Npm，也可以直接
 
 修改 highlight.js ，为代码添加行数显示
 
-对于volantis 主题，则需要在`~\themes\volantis\layout_plugins\highlight\` 的 `script.ejs` 末尾添加
+对于volantis 主题，则需要在`~\themes\volantis\layout\_plugins\highlight\` 的 `script.ejs` 末尾添加
 
 ```
 <% if (theme.plugins.highlightjs.js) { %>
@@ -112,8 +112,5 @@ highlightjs:
     inlinecode:  '#4282d7'      # '#c74f00'
 ```
 
-最后的效果![image-20220510234224527](C:\Users\19914\AppData\Roaming\Typora\typora-user-images\image-20220510234224527.png)
+最后的效果![image-script](https://s2.loli.net/2022/05/16/wNBzWqP7JSVuUmp.png)
 
-## 设置代码换行
-
-有时可能会出现代码不按照设置换行，这个问题暂时还没解决

@@ -1,15 +1,1 @@
 <%- partial(theme.plugins.code_highlight + '/script') %>
-<% if (theme.plugins.highlightjs.js) { %>
-<%- js(theme.plugins.highlightjs.js) %>
-<script src="//cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<script>hljs.initLineNumbersOnLoad({singleLine:true});</script>
-<script>
-<% } %>
-volantis.pjax.push(()=>{
-    document.querySelectorAll('pre code').forEach((block) => {
-    hljs.highlightBlock(block);
-    hljs.lineNumbersBlock(block,{singleLine:true});
-    });
-},"highlightjs")
-</script> 
