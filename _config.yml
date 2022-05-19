@@ -104,7 +104,7 @@ theme: volantis
 feed:
   type: atom
   path: /atom.xml
-  limit: 5
+  limit: 3
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
