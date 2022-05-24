@@ -1,10 +1,11 @@
 ---
-title: 安装和使用 miniflux
+title: Docker-compose|安装和使用 miniflux
 date: 2022-04-24 20:04:27
 tags:
 - miniflux
 - RSShub
 - RSS
+- docker-compose
 ---
 
 > 安装部分参考 [Docker 快速搭建 Miniflux + RSSHub ](https://www.jkg.tw/p3246/)，讲解细致，全程复制粘贴就可以完成！所以不需要我多写啦。

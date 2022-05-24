@@ -1,7 +1,9 @@
 ---
-title: 使用 docker-compose 安装 Nextcloud
+title: Docker-compose|安装 Nextcloud
 date: 2022-05-05 11:09:03
-tags: Nextcloud
+tags: 
+- Nextcloud
+- docker-compose
 ---
 
 使用 `docker-compose` 安装 [Nextcloud](https://nextcloud.com/install/#instructions-server)，`Caddy` 作为 reverse-proxy 以及获取 SSL 证书

@@ -1,5 +1,5 @@
 ---
-title: 实现代码高亮的多彩——针对 volantis 主题
+title: Hexo|实现代码高亮的多彩——针对 volantis 主题
 date: 2022-05-10 22:03:09
 tags:
 - volantis

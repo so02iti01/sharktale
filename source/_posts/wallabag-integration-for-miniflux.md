@@ -1,10 +1,11 @@
 ---
-title: 安装 wallabag 作为 miniflux 的插件
+title: Docker-compose|安装 wallabag 作为 miniflux 的插件
 date: 2022-05-16 13:47:23
 tags:
 - Miniflux
 - Wallabag
 - RSS
+- docker-compose
 ---
 
 `wallabag ` 的优点是可以下载并保存网页，防止链接失效无法访问收藏的内容。`wallabag ` 有一些抓取不全的问题，用作 `miniflux` 的插件就还好。本文说明了如何使用 docker-compose 安装 `wallabag` ，以及在 `miniflux` 中使用 `wallabag`。
