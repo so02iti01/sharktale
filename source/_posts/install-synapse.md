@@ -1,5 +1,5 @@
 ---
-title: 搭建 matrix 服务
+title: Ubuntu|搭建 matrix 服务
 date: 2022-04-18 11:35:24
 tags: 
 - matrix
@@ -14,19 +14,19 @@ tags:
 
 安装 `PostgreSQL`
 
-```
+```bash
 sudo apt install postgresql
 ```
 
 进入 `postgres` 用户
 
-```
+```bash
 sudo su - postgres
 ```
 
 创建用户和数据库
 
-```
+```postgresql
 # this will prompt for a password for the new user
 createuser --pwprompt synapse_user
 
@@ -37,7 +37,7 @@ createdb --encoding=UTF8 --locale=C --template=template0 --owner=synapse_user sy
 
 这部分参照官方说明来改就行了
 
-```
+```bash
 sudo nano /etc/matrix-synapse/homeserver.yaml
 ```
 
@@ -45,28 +45,28 @@ sudo nano /etc/matrix-synapse/homeserver.yaml
 
 `snap package` 是安装 `certbot` 最容易的方式
 
-```
+```bash
 sudo apt install snapd
 sudo snap install core
 ```
 
 检查安装正常
 
-```
+```bash
 sudo snap install hello-world
 hello-world
 ```
 
 安装 `certbot`
 
-```
+```bash
 sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 ```
 
 打开 `port 80`，`443`和 `8448`，然后获取证书。
 
-```
+```bash
 sudo certbot certonly --nginx -d synapse.matrix.org
 ```
 
@@ -90,13 +90,13 @@ sudo certbot certonly --nginx -d synapse.matrix.org
 
 安装 `NGINX`
 
-```
+```bash
 sudo apt-get install nginx -y
 ```
 
 新建并打开 `NGINX` 配置
 
-```
+```bash
 sudo nano /etc/nginx/sites-available/synapse.matrix.org.conf
 ```
 
@@ -104,7 +104,7 @@ sudo nano /etc/nginx/sites-available/synapse.matrix.org.conf
 
 载入新配置
 
-```
+```bash
 sudo ln -s /etc/nginx/sites-available/synapse.matrix.org.conf /etc/nginx/sites-enabled/
 ```
 
@@ -125,7 +125,7 @@ sudo ln -s /etc/nginx/sites-available/synapse.matrix.org.conf /etc/nginx/sites-e
 
 开始注册新用户
 
-```
+```bash
 register_new_matrix_user -c /etc/matrix-synapse/homeserver.yaml http://localhost:8008
 ```
 
@@ -149,13 +149,53 @@ Success!
 enable_registration: false
 ```
 
+### 手动重置用户密码
+
+参考 [MATRIX - reset password (synapse)](https://blog.dtpnk.tech/en/matrix-reset-password-synapse/)，`SQLite`  和 `postgreSQL` 有各自的操作
+
+我的数据库是 `postgreSQL`，首先获得新密码的哈希值
+
+```bash
+hash_password
+```
+
+进入  `postgreSQL`
+
+```bash
+su postgres
+psql
+```
+
+依次输入一些数据库操作
+
+```postgresql
+\connect synapse
+ UPDATE users SET 
+ password_hash='$2a$12$q...sp3m' WHERE name='@username:synapse.matrix.org';
+\q
+```
+
+> * `\connect synaps`e 是连接到 synapse 的数据库，这里的 `synapse` 是 你在 `homeserver.yaml` 写的数据库名字
+> * `password_hash` 为上面计算出的新密码哈希值
+> * `WHERE name` 后面要换成你自己的用户名
+
 ## 附录
 
 ### 生成需要长度的密钥
 
-```
+```bash
 cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1
 ```
+## 配置 turn 语音服务
+
+根据官方教程，就可以配置了，但是官方教程没有指出
+
+```bash
+sudo nano /etc/default/coturn
+```
+
+去除 `TURNSERVER_ENABLED=1` 的注释
+
 
 ### 修改hba_file
 
@@ -167,7 +207,7 @@ cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1
 
 向 `postgresSQL` 询问 `hba_file` 的位置
 
-```
+```postgresql
 SHOW hba_file；
 ```
 
@@ -186,19 +226,19 @@ SHOW hba_file；
 
 查询目前存在的 package 名称和地址
 
-```
+```postgresql
 dpkg-statoverride --list 
 ```
 
 移除 package
 
-```
+```postgresql
 dpkg-statoverride --remove <path>
 ```
 
 ### 可能用到的 NGINX 相关命令
 
-```
+```bash
 sudo nginx -t
 sudo nginx -s reload     # 开启 nginx 之后，修改了配置，只需要用这个命令
 sudo systemctl enable nginx
@@ -208,7 +248,7 @@ sudo systemctl status nginx
 
 ### 可能用到的  synapse 相关命令
 
-```
+```bash
 sudo systemctl enable matrix-synapse
 sudo systemctl restart matrix-synapse
 sudo systemctl status matrix-synapse
@@ -216,7 +256,9 @@ sudo systemctl status matrix-synapse
 
 ### 移除文件的命令
 
-```
+注意：rm 是永久移除
+
+```bash
 sudo rm /etc/nginx/sites-enabled/synapse.matrix.org.conf 
 ```
 
