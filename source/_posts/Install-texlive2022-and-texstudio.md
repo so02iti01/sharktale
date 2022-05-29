@@ -1,5 +1,5 @@
 ---
-title: 安装 texlive2022 和 texstudio
+title: Win|安装 texlive2022 和 texstudio
 date: 2022-04-08 12:50:36
 tags: 
 - texlive
@@ -10,7 +10,7 @@ tags:
 
 解压缩 `texlive2022-20220321.iso`，找到并打开`tl-tray-menu.exe`，在任务栏中找到对应图标，右键选择`Command Prompt`
 执行下面的命令：
-```
+```bash
 install-tl-windows -repository https://mirrors.tuna.tsinghua.edu.cn/tlpretest/ -gui
 ```
 ![ScreenShot_20220408125519](D:\Sharktale\source\images\ScreenShot_20220408125519.jpeg)

@@ -1,5 +1,5 @@
 ---
-title: 安装 element-web
+title: Ubuntu|安装 element-web
 date: 2022-04-21 22:18:40
 tags: 
 - element
@@ -10,7 +10,7 @@ tags:
 
 <!--more-->
 
-```
+```bash
 wget https://github.com/vector-im/element-web/releases/download/v1.10.9-rc.3/element-v1.10.9-rc.3.tar.gz
 sudo tar -zxvf element-v1.10.9-rc.3.tar.gz -C /etc/matrix-synapse/element
 sudo mv /etc/matrix-synapse/element/element-v1.10.9-rc.3 /etc/matrix-synapse/element-web

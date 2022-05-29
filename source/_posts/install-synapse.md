@@ -1,6 +1,7 @@
 ---
 title: Ubuntu|搭建 matrix 服务
 date: 2022-04-18 11:35:24
+update: 2022-05-27 20:04s:22
 tags: 
 - matrix
 - synapse
