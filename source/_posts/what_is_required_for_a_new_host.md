@@ -1,6 +1,7 @@
 ---
-title: 新 linux 主机需要的一些设置
+title: Ubuntu|新 linux 主机需要的一些设置
 date: 2022-05-18 13:06:39
+updated:
 tags: 
 - VPS
 - PuTTY

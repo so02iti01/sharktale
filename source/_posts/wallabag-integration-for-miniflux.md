@@ -1,6 +1,7 @@
 ---
 title: Docker-compose|安装 wallabag 作为 miniflux 的插件
 date: 2022-05-16 13:47:23
+updated:
 tags:
 - Miniflux
 - Wallabag

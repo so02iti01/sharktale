@@ -142,7 +142,7 @@ article:
   body:
     # 文章顶部信息
     # 从 meta_library 中取
-    top_meta: [author, category, date] #启用评论数量需在此添加
+    top_meta: [author, category, date, updated] #启用评论数量需在此添加
     # ----------------
     # 文章页脚组件
     footer_widget:

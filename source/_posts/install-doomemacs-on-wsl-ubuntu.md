@@ -1,6 +1,7 @@
 ---
-title: 在 WSL 上 Emacs 的安装与使用
+title: Win|在 WSL 上 Emacs 的安装与使用
 date: 2022-05-11 17:26:41
+updated:
 author: Southfox
 tags:
 - WSL

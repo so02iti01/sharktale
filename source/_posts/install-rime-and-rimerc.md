@@ -1,6 +1,7 @@
 ---
-title: 安装 rimerc 
+title: Win|安装 rimerc 
 date: 2022-04-27 22:16:25
+updated:
 tags: 
 - rime
 - rimerc

@@ -1,7 +1,7 @@
 ---
-title: 安装和设置 Apache，NGINX，MySQL，PHP
+title: Ubuntu|安装和设置 Apache，NGINX，MySQL，PHP
 date: 2022-03-31 11:26:20
-update: 2022-04-01 21:51:56
+updated: 2022-04-01 21:51:56
 tags: 
 - VPS
 - Apache

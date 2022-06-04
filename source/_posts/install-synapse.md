@@ -1,7 +1,7 @@
 ---
 title: Ubuntu|搭建 matrix 服务
 date: 2022-04-18 11:35:24
-update: 2022-05-27 20:04s:22
+updated: 2022-06-04 21:52:05
 tags: 
 - matrix
 - synapse
@@ -65,7 +65,16 @@ sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 ```
 
-打开 `port 80`，`443`和 `8448`，然后获取证书。
+打开 `port 80`，`443`
+
+```bash
+ufw allow 80
+ufw allow 443
+```
+
+>  尤其注意打开 `port 80`，容易忘记
+
+获取证书。
 
 ```bash
 sudo certbot certonly --nginx -d synapse.matrix.org
@@ -187,7 +196,7 @@ psql
 ```bash
 cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1
 ```
-## 配置 turn 语音服务
+### 配置 turn 语音服务
 
 根据官方教程，就可以配置了，但是官方教程没有指出
 
@@ -196,6 +205,20 @@ sudo nano /etc/default/coturn
 ```
 
 去除 `TURNSERVER_ENABLED=1` 的注释
+
+### 添加管理面板 synapse-admin
+
+```dockerfile
+docker run -d -p 8100:80 awesometechnologies/synapse-admin
+```
+
+> 在设置 reverse-proxy 的时候，需要 access to the following endpoints:
+>
+> - `/_matrix`
+>
+> - `/_synapse/admin`
+
+如果设置没问题，在 `synapse-admin` 页面输入 `Homeserver URL` 的时候，应该显示 synpase 服务器的版本号
 
 
 ### 修改hba_file
