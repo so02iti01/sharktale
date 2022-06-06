@@ -209,7 +209,7 @@ sudo nano /etc/default/coturn
 ### 添加管理面板 synapse-admin
 
 ```dockerfile
-docker run -d -p 8100:80 awesometechnologies/synapse-admin
+docker run -d -p 8090:80 awesometechnologies/synapse-admin # 8090 是 synapse-admin 出现的端口号
 ```
 
 > 在设置 reverse-proxy 的时候，需要 access to the following endpoints:
