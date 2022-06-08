@@ -1,7 +1,7 @@
 ---
 title: Ubuntu|搭建 matrix 服务
 date: 2022-04-18 11:35:24
-updated: 2022-06-04 21:52:05
+updated: 
 tags: 
 - matrix
 - synapse
@@ -189,14 +189,7 @@ psql
 > * `password_hash` 为上面计算出的新密码哈希值
 > * `WHERE name` 后面要换成你自己的用户名
 
-## 附录
-
-### 生成需要长度的密钥
-
-```bash
-cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1
-```
-### 配置 turn 语音服务
+## 配置 turn 语音服务
 
 根据官方教程，就可以配置了，但是官方教程没有指出
 
@@ -206,7 +199,7 @@ sudo nano /etc/default/coturn
 
 去除 `TURNSERVER_ENABLED=1` 的注释
 
-### 添加管理面板 synapse-admin
+## 添加管理面板 synapse-admin
 
 ```dockerfile
 docker run -d -p 8100:80 awesometechnologies/synapse-admin
@@ -220,6 +213,13 @@ docker run -d -p 8100:80 awesometechnologies/synapse-admin
 
 如果设置没问题，在 `synapse-admin` 页面输入 `Homeserver URL` 的时候，应该显示 synpase 服务器的版本号
 
+## 附录
+
+### 生成需要长度的密钥
+
+```bash
+cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1
+```
 
 ### 修改hba_file
 
