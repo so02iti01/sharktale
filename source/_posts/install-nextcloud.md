@@ -141,3 +141,23 @@ Nextcloud 提供了 [Nextcloud Security Scan](https://scan.nextcloud.com/)，可
 > 这里提到的 `config/config.php` ，是 Nextcloud 存储 config 的地方，可以采用 `find /var -name "config.php"` 查找
 
 还要在 Nextcloud 的用户界面内，点击右上角的头像，选择 Setting > Overview 进行安全检查，会出现很多警告，按照提示进行进一步更改。
+
+## 一些问题的解决
+
+遇到了问题 `Access through untrusted domain`
+
+> Please contact your administrator. If you are an administrator, edit the "trusted_domains" setting in config/config.php like the example in config.sample.php.
+>
+> Further information how to configure this can be found in the [documentation](https://docs.nextcloud.com/server/24/go.php?to=admin-trusted-domains).
+
+查找 config.php 位置，进而修改
+
+```
+find /var -name "config.php"`
+```
+
+或者使用环境变量，Start the container with:
+
+```
+-e NEXTCLOUD_TRUSTED_DOMAINS=cloud.yourdomain.tld
+```
