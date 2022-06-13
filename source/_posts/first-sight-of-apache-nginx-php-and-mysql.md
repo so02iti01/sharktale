@@ -31,7 +31,7 @@ tags:
 
 很可能你的 VPS 已经安装了 `Apache`，输入下列命令可以检查是否存在 `Apache`。
 
-```
+```shell
 sudo systemctl status apache2
 ```
 
@@ -41,7 +41,7 @@ sudo systemctl status apache2
 
 自己安装 `Apache`：
 
-```
+```shell
 sudo apt install apache2
 ```
 
@@ -49,13 +49,13 @@ sudo apt install apache2
 
 如果 VPS 之前有防火墙，需要为 `Apache` 新建立一条 rule：
 
-```
+```shell
 sudo ufw allow “Apache Full”
 ```
 
 再次检查 `Apache` 是否存在：
 
-```
+```shell
 sudo systemctl status apache2
 ```
 
@@ -69,7 +69,7 @@ sudo systemctl status apache2
 
 ## 安装 MySQL
 
-```
+```shell
 sudo apt-get install mysql-server
 ```
 
@@ -77,7 +77,7 @@ sudo apt-get install mysql-server
 >
 > 如果没有提示设置 `root` 密码，可以输入
 >
-> ```
+> ```mysql
 > mysql_secure_installation
 > ```
 >
@@ -85,7 +85,7 @@ sudo apt-get install mysql-server
 
 检查 `MySQL` 服务的状态：
 
-```
+```shell
 sudo systemctl status mysql
 ```
 
@@ -103,13 +103,13 @@ sudo systemctl status mysql
 
 检查 packet 更新：
 
-```
+```shell
 sudo apt-get upgrade
 ```
 
 安装 `PHP`：
 
-```
+```shell
 sudo apt-get install php
 ```
 
@@ -121,13 +121,13 @@ sudo apt-get install php
 
 > 在 `/var/www/html` 目录下，新建一个 `test.php`，并用 `nano` 打开。这个目录被称为 `webroot`，是 `Apache` 查找网页的缺省位置（如果没有被设置从哪里找的话）。
 >
-> ```
+> ```shell
 > sudo nano /var/www/html/test.php
 > ```
 >
 > 在新建的文件中，输入之后，按 `CTRL + X` ，`Y` 保存后 `ENTER` 离开。
 >
-> ```
+> ```php
 > <?php
 > phpinfo();
 > ?>
@@ -140,7 +140,7 @@ sudo apt-get install php
 > ```
 > 移除测试文件（一定要移除，否则有安全风险）
 >
-> ```
+> ```shell
 > sudo rm /var/www/html/test.php
 > ```
 
@@ -148,7 +148,7 @@ sudo apt-get install php
 
 就是突然想升个级
 
-```
+```shell
 sudo apt update
 sudo apt upgrade
 sudo do-release-upgrade
@@ -168,7 +168,7 @@ sudo do-release-upgrade
 
 ### 安装 **NGINX**
 
-```
+```shell
 sudo apt-get update
 sudo apt-get install nginx
 ```
@@ -176,13 +176,13 @@ sudo apt-get install nginx
 
 sudo nano（我觉得vim太难用了，可以的话我还要记得删除vim的包）
 
-```
+```shell
 sudo nano /etc/apache2/ports.conf
 ```
 
 在第 5 行，把端口号 80 改为 8080.
 
-```
+```nginx
 Listen 8080
 ```
 
@@ -190,7 +190,7 @@ Listen 8080
 
 在 `/etc/apache2/sites-available/` 目录下，创建文件 `000-default.conf` 和 `001-default.conf` 
 
-```
+```shell
 sudo nano /etc/apache2/sites-available/000-default.conf
 ```
 
@@ -207,25 +207,25 @@ sudo nano /etc/apache2/sites-available/000-default.conf
 
 Save the file and activate the new configuration file:
 
-```bash
+```shell
 sudo a2ensite 001-default
 ```
 
 Then reload Apache:
 
-```bash
+```shell
 sudo systemctl reload apache2
 ```
 
 Install the `net-tools` package which contains the `netstat` command:
 
-```bash
+```shell
 sudo apt install net-tools
 ```
 
 Verify that Apache is now listening on `8080`:
 
-```bash
+```shell
 sudo netstat -tlpn
 ```
 
@@ -251,13 +251,13 @@ Once you verify that Apache is listening on the correct port, you can configure 
 
 关闭 default 的虚拟主机（visual host）
 
-```
+```shell
 sudo unlink /etc/nginx/sites-enabled/default
 ```
 
 打开：
 
-```
+```shell
 sudo nano /etc/nginx/nginx.conf
 ```
 
@@ -265,7 +265,7 @@ sudo nano /etc/nginx/nginx.conf
 
 创建新文件：
 
-```
+```shell
 sudo nano /etc/nginx/sites-available/reverse.conf
 ```
 
@@ -278,7 +278,7 @@ sudo nano /etc/nginx/sites-available/reverse.conf
 >
 > The `Ctrl+U` command only allows pasting text that was copied or cut from within nano itself, hence the reason the command is not working.
 
-```
+```nginx
 server {
     listen 80 default_server;
     index index.php index.html index.htm;
@@ -294,13 +294,13 @@ server {
 
 保存并离开 nano，然后开启虚拟主机配置：
 
-```
+```shell
 sudo ln -s /etc/nginx/sites-available/reverse.conf /etc/nginx/sites-enabled/
 ```
 
 测试 NGINX
 
-```
+```shell
 sudo nginx -t
 ```
 
@@ -314,7 +314,7 @@ sudo nginx -t
 
 重启 NGINX：
 
-```
+```shell
 sudo systemctl restart nginx
 ```
 

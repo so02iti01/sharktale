@@ -28,24 +28,24 @@ Hexo建议采用2个branch，一个放置博客源代码，一个放置产生的
 
 hexo命令：
 
-```
- $ hexo <command>
+```bash
+hexo <command>
 ```
 
 如果输入不存在的`command`（比如：hexo -s），会显示出hexo相关命令的帮助。
 
 生成一个名为<filename>的，新的markdown文件（位于\source\_posts\）：
 
-```
-$ hexo new "<filename>"
+```bash
+hexo new "<filename>"
 ```
 
 > 注意：文章内部不要使用 H1 标题。
 
 编译形成网页（使用http://localhost:4000/访问本地主机，即可看到效果） ：
 
-```
-$ hexo s
+```bash
+hexo s
 ```
 
 git命令多看[git cheat sheet.pdf](https://training.github.com/downloads/zh_CN/github-git-cheat-sheet/)，外加多搜索
@@ -54,10 +54,10 @@ git命令多看[git cheat sheet.pdf](https://training.github.com/downloads/zh_CN
 
 1. 将Hexo配置推到remote的branch
 
-```
-$ git add .               
-$ git commit -m "[descriptive messgage]"  
-$ git push origin Hexo    # 将本地branch的内容全部上传到与之关联的remote branch
+```bash
+git add .               
+git commit -m "[descriptive messgage]"  
+git push origin Hexo    # 将本地branch的内容全部上传到与之关联的remote branch
 ```
 
 > 说明：
@@ -74,11 +74,11 @@ $ git push origin Hexo    # 将本地branch的内容全部上传到与之关联�
 
 2. 把文章推到master分支
 
-```
-$ hexo g -d
+```bash
+hexo g -d
 ```
 
-> `$ hexo g`	Generate static files, options: 
+> `hexo g`	Generate static files, options: 
 >
 > | Command               | Description                                                  |
 > | :-------------------- | ------------------------------------------------------------ |

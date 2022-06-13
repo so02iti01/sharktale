@@ -95,7 +95,7 @@ caddy 可以自动获取 Let’s Encrypt SSL certificate 并自动续期，设�
 > caddy 的设置参考了[Docker 快速搭建 Miniflux + RSSHub](https://www.jkg.tw/p3246/)
 
 下载 `caddy`
-```bash
+```shell
 # 下载编译好的 Caddy 执行档
 wget https://github.com/caddyserver/caddy/releases/download/v2.0.0-beta.15/caddy2_beta15_linux_amd64
 # 赋予执行和设定低端口绑定的权限
@@ -105,7 +105,7 @@ sudo mv caddy2_beta15_linux_amd64 /usr/local/bin/caddy
 ```
 
 创建 `caddyfile`
-```bash
+```shell
 sudo mkdir /etc/caddy && sudo nano /etc/caddy/Caddyfile
 ```
 
@@ -118,7 +118,7 @@ wallabag.example.com {
 ```
 
 防火墙打开 port 80 和 port 443，为 `caddy` 申请 SSL certificate 做准备
-```bash
+```shell
 sudo iptables -I INPUT -p tcp -m tcp --dport 80 -j ACCEPT
 sudo iptables -I INPUT -p tcp -m tcp --dport 443 -j ACCEPT
 sudo apt install iptables-persistent  # 将上面2个防火墙规则自动永久载入本机
@@ -132,11 +132,11 @@ sudo caddy run --config /etc/caddy/Caddyfile
 下面要做的是设置系统每次重启，都会自动启动 caddy
 
 新建设置文件
-```bash
+```shell
 sudo nano /etc/systemd/system/caddy.service
 ```
 写入
-```bash
+```shell
 [Unit]
 Description=Caddy Server
 After=syslog.target
@@ -152,7 +152,7 @@ WantedBy=multi-user.target
 ```
 
 启用 caddy
-```bash
+```shell
 sudo systemctl daemon-reload
 sudo systemctl enable caddy.service
 sudo systemctl start caddy.service

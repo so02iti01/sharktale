@@ -26,7 +26,7 @@ highlightjs-line-numbers.js 的安装，可以采用 Bower/Npm，也可以直接
 
 对于volantis 主题，则需要在`~\themes\volantis\layout\_plugins\highlight\` 的 `script.ejs` 末尾添加
 
-```
+```javascript
 <% if (theme.plugins.highlightjs.js) { %>
 <%- js(theme.plugins.highlightjs.js) %>
 <script src="//cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
@@ -49,7 +49,7 @@ volantis.pjax.push(()=>{
 
 在 `~/themes/volantis/source/css/` 目录下创建 `_other` 文件夹，并在里面创建一个名为 `codeblock.styl` 的文件，文件内容直接复制自 [highlightjs-line-numbers.js](https://github.com/wcoder/highlightjs-line-numbers.js/) 说明的 cool style 部分
 
-```
+```javascript
 /* for block of numbers */
 .hljs-ln-numbers {
     -webkit-touch-callout: none;
@@ -76,7 +76,7 @@ volantis.pjax.push(()=>{
 
 打开  `~/themes/volantis/source/css/` 目录下的 `style.styl` 文件，添加以下内容，引入样式
 
-```
+```css
 @import '_other/*'
 ```
 
@@ -84,7 +84,7 @@ volantis.pjax.push(()=>{
 
 打开  `_config.yml`  ，设置 disable `highlight` 和 enable `highlightjs`
 
-```
+```javascript
 # 修改的内容
 highlight:
   enable: false

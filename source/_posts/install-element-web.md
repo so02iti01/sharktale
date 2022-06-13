@@ -11,7 +11,7 @@ tags:
 
 <!--more-->
 
-```bash
+```shell
 wget https://github.com/vector-im/element-web/releases/download/v1.10.9-rc.3/element-v1.10.9-rc.3.tar.gz
 sudo tar -zxvf element-v1.10.9-rc.3.tar.gz -C /etc/matrix-synapse/element
 sudo mv /etc/matrix-synapse/element/element-v1.10.9-rc.3 /etc/matrix-synapse/element-web
@@ -28,8 +28,7 @@ sudo nano /etc/matrix-synapse/element-web/config.json
 
 在之前的 NGINX 配置文件中，添加
 
-```
+```nginx
 root /etc/matrix-synapse/element-web;
 ```
 
-> 注意：需要添加到location上面

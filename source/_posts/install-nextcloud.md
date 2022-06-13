@@ -1,5 +1,5 @@
 ---
-title: Docker-compose|安装 Nextcloud
+title: Docker-compose|Nextcloud 安装与可用 container commands
 date: 2022-05-05 11:09:03
 updated:
 tags: 
@@ -19,7 +19,7 @@ tags:
 
 由于之前我的 vps 上已经安装过了 docker-compose 和 Caddy，所以直接从写 `docker-compose.yml` 开始
 
-```
+```shell
 # 新建目录和docker-compose.yml文件
 sudo mkdir ~/nextcloud && cd ~/nextcloud
 sudo nano docker-compose.yml
@@ -27,7 +27,7 @@ sudo nano docker-compose.yml
 
 在 `docker-compose.yml` 中粘贴一下内容，并保存
 
-```
+```dockerfile
 version: '2'
 
 volumes:
@@ -72,14 +72,14 @@ services:
 
 由于这台机器上已经安装了 Caddy（在之前安装 miniflux 的时候），所以这里直接继续使用 Caddy
 
-```
+```shell
  # 打开上次写过的 Caddyfile
  sudo nano /etc/caddy/Caddyfile
 ```
 
 假如你把 Nextcloud 放在 `site.example.com`  ，在 Caddyfile 末尾增加上以下内容
 
-```
+```caddyfile
 https://site.example.com {
     encode zstd gzip
     reverse_proxy 127.0.0.1:8080    # 这个端口号与 docker-compose.yml 中端口号保持一致
@@ -90,7 +90,7 @@ https://site.example.com {
 
 启用新的 Caddy Service，Caddy 就会自动为你申请 SSL 证书啦
 
-```
+```shell
 sudo systemctl daemon-reload   
 sudo systemctl enable caddy.service
 sudo systemctl start caddy.service
@@ -114,7 +114,7 @@ sudo systemctl start caddy.service
 
 如果还是没有得到解决的话，根据对于 [admin](https://caddyserver.com/docs/caddyfile/options#admin) 的说明，可以设置关闭 `admin endpoint`。但是这样做的缺点是，caddy 的配置改变后需要停止再重启服务。
 
-```
+```caddyfile
 {
     admin off
 }
@@ -126,7 +126,7 @@ sudo systemctl start caddy.service
 
 这是由于之前已经运行了一个带有 SSL 的网站导致的，参考 [Issue](https://github.com/caddyserver/caddy/issues/309)，直接 `caddy stop`，然后
 
-```
+```shell
 sudo systemctl daemon-reload   # 这一行特别重要
 sudo systemctl enable caddy.service
 sudo systemctl start caddy.service
@@ -152,7 +152,7 @@ Nextcloud 提供了 [Nextcloud Security Scan](https://scan.nextcloud.com/)，可
 
 查找 config.php 位置，进而修改
 
-```
+```shell
 find /var -name "config.php"`
 ```
 
@@ -161,3 +161,31 @@ find /var -name "config.php"`
 ```
 -e NEXTCLOUD_TRUSTED_DOMAINS=cloud.yourdomain.tld
 ```
+
+## Nextcloud (docker)的一些可用命令
+
+```bash
+docker exec -it -u www-data nextcloud_app_1 php occ # 查询 nextcloud 所有可用命令，这里的 nextcloud_app_1 是我的 Container_Name
+```
+
+查询 `Container_Name` 可用
+
+```shell
+docker ps
+```
+
+如果需要迁移data，或许会需要去除 server-side 的 加密，并为所有文件解除加密
+
+```shell
+docker exec -it -u www-data nextcloud_app_1 php occ encryption:decrypt-all  # 这里的 nextcloud_app_1 是我的 Container_Name
+```
+
+> Disable server side encryption... done.
+>
+> You are about to start to decrypt all files stored in your Nextcloud.
+> It will depend on the encryption module and your setup if this is possible.
+> Depending on the number and size of your files this can take some time
+> Please make sure that no user access his files during this process!
+
+
+

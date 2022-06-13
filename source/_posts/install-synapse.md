@@ -15,13 +15,13 @@ tags:
 
 安装 `PostgreSQL`
 
-```bash
+```shell
 sudo apt install postgresql
 ```
 
 进入 `postgres` 用户
 
-```bash
+```shell
 sudo su - postgres
 ```
 
@@ -38,7 +38,7 @@ createdb --encoding=UTF8 --locale=C --template=template0 --owner=synapse_user sy
 
 这部分参照官方说明来改就行了
 
-```bash
+```shell
 sudo nano /etc/matrix-synapse/homeserver.yaml
 ```
 
@@ -46,28 +46,28 @@ sudo nano /etc/matrix-synapse/homeserver.yaml
 
 `snap package` 是安装 `certbot` 最容易的方式
 
-```bash
+```shell
 sudo apt install snapd
 sudo snap install core
 ```
 
 检查安装正常
 
-```bash
+```shell
 sudo snap install hello-world
 hello-world
 ```
 
 安装 `certbot`
 
-```bash
+```shell
 sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 ```
 
 打开 `port 80`，`443`
 
-```bash
+```shell
 ufw allow 80
 ufw allow 443
 ```
@@ -76,7 +76,7 @@ ufw allow 443
 
 获取证书。
 
-```bash
+```shell
 sudo certbot certonly --nginx -d synapse.matrix.org
 ```
 
@@ -100,13 +100,13 @@ sudo certbot certonly --nginx -d synapse.matrix.org
 
 安装 `NGINX`
 
-```bash
+```shell
 sudo apt-get install nginx -y
 ```
 
 新建并打开 `NGINX` 配置
 
-```bash
+```shell
 sudo nano /etc/nginx/sites-available/synapse.matrix.org.conf
 ```
 
@@ -114,7 +114,7 @@ sudo nano /etc/nginx/sites-available/synapse.matrix.org.conf
 
 载入新配置
 
-```bash
+```shell
 sudo ln -s /etc/nginx/sites-available/synapse.matrix.org.conf /etc/nginx/sites-enabled/
 ```
 
@@ -135,7 +135,7 @@ sudo ln -s /etc/nginx/sites-available/synapse.matrix.org.conf /etc/nginx/sites-e
 
 开始注册新用户
 
-```bash
+```shell
 register_new_matrix_user -c /etc/matrix-synapse/homeserver.yaml http://localhost:8008
 ```
 
@@ -165,13 +165,13 @@ enable_registration: false
 
 我的数据库是 `postgreSQL`，首先获得新密码的哈希值
 
-```bash
+```shell
 hash_password
 ```
 
 进入  `postgreSQL`
 
-```bash
+```shell
 su postgres
 psql
 ```
@@ -193,7 +193,7 @@ psql
 
 根据官方教程，就可以配置了，但是官方教程没有指出
 
-```bash
+```shell
 sudo nano /etc/default/coturn
 ```
 
@@ -217,7 +217,7 @@ docker run -d -p 8090:80 awesometechnologies/synapse-admin # 8090 是 synapse-ad
 
 ### 生成需要长度的密钥
 
-```bash
+```shell
 cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1
 ```
 
@@ -262,7 +262,7 @@ dpkg-statoverride --remove <path>
 
 ### 可能用到的 NGINX 相关命令
 
-```bash
+```shell
 sudo nginx -t
 sudo nginx -s reload     # 开启 nginx 之后，修改了配置，只需要用这个命令
 sudo systemctl enable nginx
@@ -272,7 +272,7 @@ sudo systemctl status nginx
 
 ### 可能用到的  synapse 相关命令
 
-```bash
+```shell
 sudo systemctl enable matrix-synapse
 sudo systemctl restart matrix-synapse
 sudo systemctl status matrix-synapse
@@ -282,7 +282,7 @@ sudo systemctl status matrix-synapse
 
 注意：rm 是永久移除
 
-```bash
+```shell
 sudo rm /etc/nginx/sites-enabled/synapse.matrix.org.conf 
 ```
 

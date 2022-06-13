@@ -3,8 +3,8 @@ title: Notes|docker 使用与排查笔记
 date: 2022-06-12 18:09:13
 tags:
 - docker
-- docker compose
-- nextcloud
+- docker-compose
+- Nextcloud
 ---
 
 我会用到的关于 docker 和 docker compose 的简单笔记
@@ -13,7 +13,7 @@ tags:
 
 ## 容器上线与删除
 
-```bash
+```shell
 sudo nano docker-compose.yml      # 写 dockerfile    
 sudo rm docker-compose.yml        # 移除 dockerfile
 docker-compose up -d              # 上线容器
@@ -25,26 +25,27 @@ docker-compose down               # 删除容器
 针对容器
 
 
-```bash
+```shell
 docker container ls               # 显示 container ID, 创建时间, 运行状态, ports
+docker ps                         # 显示所有 container 的信息
 ```
 
 > 可以用这个命令，查看 container 是否在发生不断 restart 的故障
 
-```bash
+```shell
 docker logs <container_ID>        # 显示某个 container 的运行日志
 ```
 
 > 用来查看 container 发生故障的详细原因
 
-```bash
+```shell
 docker stop <container_ID>       # 停止某个容器
 docker rm <Container_ID>         # 删除某个容器
 ```
 
 针对镜像
 
-```bash
+```shell
 docker images                     # 展示 IMAGE ID，IMAGE 的版本(时间)
 docker rmi <IMAGE_ID>             # 删除对应镜像
 rm -rf miniflux-db                # 删除持久化数据，使用volumes:下面的名字
@@ -56,22 +57,36 @@ rm -rf miniflux-db                # 删除持久化数据，使用volumes:下面
 
 两种情况的情况的区别
 
-```bash
+```shell
 # Disabling serverside encryption)
 # (1)非 docker 安装的 Nextcloud
 cd /var/www/nextcloud.
-sudo -u www-data ./occ maintenance:singleuser –on.  # Switch the Nextcloud single user mode to on
+sudo -u www-data ./occ maintenance:singleuser –on   # Switch the Nextcloud single user mode to on
 sudo -u www-data ./occ encryption:disable. # Disable encryption
 sudo -u www-data ./occ maintenance:singleuser –off  # Turn off single user mode with the command
 # (2)docker 安装的 Nextcloud
-docker exec -it -u www-data nextcloud php occ encryption:decrypt-all xx  # 一个例子
+docker exec -it -u www-data nextcloud_app_1 php occ # 查询 nextcloud 所有可用命令，这里的 nextcloud_app_1 是 Container_Name
+docker exec -it -u www-data nextcloud_app_1 php occ encryption:decrypt-all # Disable server-side encryption and decrypt all files
 ```
 
-> 对比可以看出：（2）是在（1）的命令前面加了 `docker exec -it `
+### 输出容器内可执行命令列表
 
-`docker exec ` 的用法cd
+安装 [runlike](https://github.com/lavie/runlike)
 
-```bash
+```shell
+apt install python3-pip
+pip install runlike
+```
+
+输出命令
+
+```shell
+runlike <container_ID>
+```
+
+### docker exec  的用法
+
+```shell
 docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
 ```
 
@@ -91,7 +106,7 @@ docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
 
 examples：
 
-```bash
+```shell
 # (1)create a container named ubuntu_bash and start a Bash session.
 docker run --name ubuntu_bash --rm -i -t ubuntu bash
 # (2)create a new file /tmp/execWorks inside the running container ubuntu_bash, in the background.

@@ -17,7 +17,7 @@ tags:
 
 创建目录
 
-```bash
+```shell
 mkdir ~/miniflux && cd ~/miniflux
 nano docker-compose.yml
 ```
@@ -87,13 +87,13 @@ volumes:
 
 启动服务
 
-```bash
+```shell
 docker-compose up -d
 ```
 
 在 `miniflux` 目录下，继续初始化 `miniflux`
 
-```bash
+```shell
 # miniflux 大版本升级也可能用到这一条
 docker-compose exec miniflux /usr/bin/miniflux -migrate
 ```
@@ -105,7 +105,7 @@ docker-compose exec miniflux /usr/bin/miniflux -migrate
 
 新增 miniflux 管理帐号，用于登录管理后台
 
-```bash
+```shell
 docker-compose exec miniflux /usr/bin/miniflux -create-admin
 ```
 

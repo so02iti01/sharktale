@@ -27,7 +27,7 @@ open SSH 客户端的使用大同小异。下载 [PuTTY](https://www.putty.org/)
 ### 更新 VPS 的 packages
 在上一步中如果密码输入正确，还会显示需要更新的内容。输入一下内容，进行可更新 packages 的检查
 
-```bash
+```shell
 apt update
 ```
 
@@ -37,11 +37,11 @@ apt update
 前面都使用 root 账户操作，root 对系统具有全部权限，因而可能对系统造成严重的损害，所以使用 root 是 不够安全的。而一个具有 superuser 权限的常规账户，需要在命令前面加上 `sudo` 前缀，才能获取管理员权限。
 添加新用户：
 
-```bash
+```shell
 adduser <your new username>
 ```
 为新用户增加 superuser 权限：
-```bash
+```shell
 usermod -aG sudo <your new username>
 ```
 ### 增加 public key 认证
@@ -55,12 +55,12 @@ usermod -aG sudo <your new username>
 
 使用以下命令，可以移动到之前创建的新用户的 home directory，这样命令行会对应到创建的新用户
 
-```bash
+```shell
 su – <your new username>
 ```
 之后，按照顺序输入下面的命令，作用是：为 `public key` 创建新文件夹，限制获取这个文件夹的权限，并且保存 public key
 
-```bash
+```shell
 mkdir ~/.ssh
 chmod 700 ~/.ssh
 nano ~/.ssh/authorized_keys
@@ -75,7 +75,7 @@ nano ~/.ssh/authorized_keys
 
 输入下面的命令，作用：更改刚才编辑的文件的 permissions，并返回到  `root`  用户
 
-```bash
+```shell
 chmod 600 ~/.ssh/authorized_keys
 exit
 ```
@@ -87,13 +87,13 @@ exit
 
 > 注意：如果前面没有用keys登录成功，就不要开始关闭密码认证方式。如果前面设置错了，直接去服务商的网站上去 Rebuild > re-install，然后 Access >Reset root password，然后一切重头再来......
 
-```bash
+```shell
 sudo nano /etc/ssh/sshd_config
 ```
 
 修改下面的内容（这里参考了鱼的文章）
 
-```bash
+```
 PermitRootLogin no    
 AllowUsers username   #如果没有这一行就手动添加
 RSAAuthentication yes #这一行我找不到就没有配置
@@ -105,7 +105,7 @@ PasswordAuthentication no # 禁止使用密码登录
 
 `Reboot VPS` 或者 输入 
 
-```bash
+```shell
 service sshd restart
 ```
 
@@ -117,13 +117,13 @@ service sshd restart
 
 还是在 `/etc/ssh/sshd_config`中，在 `Port 22` 下面增加一行
 
-```bash
+```
 Port <你选择的端口号>     # 换一个22以外的端口号
 ```
 
 重启 sshd
 
-```bash
+```shell
 sudo service sshd restart
 ```
 
@@ -161,14 +161,14 @@ iptables 是 Linux 的一种防火墙程序，它使用 tables 监控来自和�
 
 #### 安装 Iptables
 
-```bash
+```shell
 sudo apt-get update
 sudo apt-get install iptables
 ```
 
 检查现有 Iptables 设置：
 
-```bash
+```shell
 sudo iptables -L -v
 ```
 
@@ -186,7 +186,7 @@ sudo iptables -L -v
 - `–dport (destination port)` — the destination port number of a protocol, such as `22 (SSH)`, `443 (https)`, etc.
 - `-j (target)` — the target name (`ACCEPT`, `DROP`, `RETURN`). You need to insert this every time you make a new rule.
 
-```bash
+```shell
 sudo iptables -A <chain> -i <interface> -p <protocol (tcp/udp) > -s <source> --dport <port no.>  -j <target>
 ```
 
@@ -196,7 +196,7 @@ sudo iptables -A <chain> -i <interface> -p <protocol (tcp/udp) > -s <source> --d
 
 使用 lo (loopback) 接口：
 
-```bash
+```shell
 sudo iptables -A INPUT -i lo -j ACCEPT
 ```
 
@@ -206,7 +206,7 @@ sudo iptables -A INPUT -i lo -j ACCEPT
 
 协议和端口号的对应是：`http` (port `80`), `https` (port `443`), 和 `ssh` (port `22`) 。这里需要指定 `-p` 和 `–dport` 参数。 
 
-```bash
+```shell
 sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
@@ -214,7 +214,7 @@ sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
 
 检查是否添加进 rule：
 
-```bash
+```shell
 sudo iptables -L -v
 ```
 
@@ -222,13 +222,13 @@ sudo iptables -L -v
 
 用到 `-s` 选项，例如扔掉来自 192.168.1.3 的 packet：
 
-```bash
+```shell
 sudo iptables -A INPUT -s 192.168.1.3 -j DROP
 ```
 
 如果想要扔掉某个范围 IP地址的 packet，需要先加上 `-m  iprange`，然后用 `––src-range` 加上 IP 地址的范围，例如：
 
-```bash
+```shell
 sudo iptables -A INPUT -m iprange --src-range 192.168.1.100-192.168.1.200 -j DROP
 ```
 
@@ -236,7 +236,7 @@ sudo iptables -A INPUT -m iprange --src-range 192.168.1.100-192.168.1.200 -j DRO
 
 需要先用上面的方法，设置允许的端口号。
 
-```bash
+```shell
 sudo iptables -A INPUT -j DROP
 ```
 
@@ -244,7 +244,7 @@ sudo iptables -A INPUT -j DROP
 
 **删除所有的rules**：`-F` 选项 (`flush`):
 
-```bash
+```shell
 sudo iptables -F
 ```
 
@@ -252,7 +252,7 @@ sudo iptables -F
 
 先排序查看 rules
 
-```bash
+```shell
 sudo iptables -L --line-numbers
 ```
 
@@ -271,13 +271,13 @@ num  target     prot opt source               destination
 
 需要用到 chain 类型和序号来执行删除命令。例如，删除 `INPUT` chain 的第 3 条：
 
-```
+```shell
 sudo iptables -D INPUT 3
 ```
 
 #### 关闭 Iptables 防火墙
 
-```bash
+```shell
 sudo iptables -F
 sudo /sbin/iptables-save
 ```
@@ -288,7 +288,7 @@ Iptables chains 更改的数据存于缓存里，但是重启 server 之后需�
 
 > 每次更改 Iptables 后，都应该运行这个命令
 
-```bash
+```shell
 sudo /sbin/iptables-save
 ```
 
@@ -297,7 +297,7 @@ sudo /sbin/iptables-save
 
 ###  运行防病毒软件 ClamAV
 
-```bash
+```shell
 # 安装
 sudo apt update
 sudo apt install clamav clamav-daemon -y
@@ -315,7 +315,7 @@ cpulimit -z -e clamscan -l 20 & clamscan -ir /
 
 其它可能用到的命令
 
-```bash
+```shell
 clamscan /home/filename.docx  #扫描特定目录或文件
 clamscan --no-summary /home/ #扫描结束时不显示摘要
 clamscan -i / #打印受感染的文件
@@ -331,7 +331,7 @@ clamscan -r --remove /home/USER #删除受感染的文件
 
 ### 安装 fail2ban 以阻止重复登录尝试
 
-```bash
+```shell
 sudo apt update 
 sudo apt upgrade -y
 sudo apt install fail2ban
@@ -340,7 +340,7 @@ sudo nano /etc/fail2ban/jail.local
 
 写入
 
-```bash
+```shell
 [DEFAULT]
 destemail = your@email.here
 sendername = Fail2Ban
@@ -354,7 +354,11 @@ enabled = true
 port = 22  # 换成前面自己设置的 SSH 端口号
 ```
 
-` sudo systemctl restart fail2ban`，重启fail2ban
+重启fail2ban
+
+``` shell
+sudo systemctl restart fail2ban
+```
 
 ## 最后的最后
 
