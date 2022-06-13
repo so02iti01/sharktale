@@ -17,7 +17,7 @@ tags:
 
 `docker-compose.yml` 的填写参考[官方说明](https://github.com/wallabag/docker#docker-compose)，各个环境变量的说明在[这里](https://github.com/wallabag/docker#environment-variables)
 
-```
+```dockerfile
 version: '3'
 services:
   wallabag:
@@ -95,7 +95,7 @@ caddy 可以自动获取 Let’s Encrypt SSL certificate 并自动续期，设�
 > caddy 的设置参考了[Docker 快速搭建 Miniflux + RSSHub](https://www.jkg.tw/p3246/)
 
 下载 `caddy`
-```
+```bash
 # 下载编译好的 Caddy 执行档
 wget https://github.com/caddyserver/caddy/releases/download/v2.0.0-beta.15/caddy2_beta15_linux_amd64
 # 赋予执行和设定低端口绑定的权限
@@ -105,12 +105,12 @@ sudo mv caddy2_beta15_linux_amd64 /usr/local/bin/caddy
 ```
 
 创建 `caddyfile`
-```
+```bash
 sudo mkdir /etc/caddy && sudo nano /etc/caddy/Caddyfile
 ```
 
 写入 `caddyfile`
-```
+```caddyfile
 wallabag.example.com {
         encode zstd gzip
         reverse_proxy localhost:8090  # 修改为自己的端口号
@@ -118,13 +118,13 @@ wallabag.example.com {
 ```
 
 防火墙打开 port 80 和 port 443，为 `caddy` 申请 SSL certificate 做准备
-```
+```bash
 sudo iptables -I INPUT -p tcp -m tcp --dport 80 -j ACCEPT
 sudo iptables -I INPUT -p tcp -m tcp --dport 443 -j ACCEPT
 sudo apt install iptables-persistent  # 将上面2个防火墙规则自动永久载入本机
 ```
 试运行 caddyfile
-```
+```bash
 sudo caddy run --config /etc/caddy/Caddyfile
 ```
 > 如果没问题，会看见显示一连串的 INFO，包括获取证书的提示。此时访问设置好的域名，将可以访问服务。确认没问题之后，`ctrl + C` 中断 caddyfile 执行
@@ -132,11 +132,11 @@ sudo caddy run --config /etc/caddy/Caddyfile
 下面要做的是设置系统每次重启，都会自动启动 caddy
 
 新建设置文件
-```
+```bash
 sudo nano /etc/systemd/system/caddy.service
 ```
 写入
-```
+```bash
 [Unit]
 Description=Caddy Server
 After=syslog.target
@@ -152,8 +152,49 @@ WantedBy=multi-user.target
 ```
 
 启用 caddy
-```
+```bash
 sudo systemctl daemon-reload
 sudo systemctl enable caddy.service
 sudo systemctl start caddy.service
 ```
+
+## 管理 MariaDB
+
+进入 `MariaDB`
+
+```mariadb
+mysql -u root -p -h localhost
+```
+
+显示全部 databases
+
+```mariadb
+SHOW DATABASES;
+```
+
+使用某一个 database
+
+```mariadb
+USE <databasename>;
+```
+
+展示选择的 database 的 tables
+
+```mariadb
+SHOW tables;
+```
+
+显示 table 里面的数据
+
+```mariadb
+SHOW [FULL] {COLUMNS | FIELDS} FROM tbl_name [FROM db_name]
+    [LIKE 'pattern' | WHERE expr];
+```
+
+* 例如：
+
+```mariadb
+SHOW COLUMNS FROM mytable FROM mydb;
+SHOW COLUMNS FROM mydb.mytable;
+```
+
