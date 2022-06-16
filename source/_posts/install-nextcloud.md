@@ -153,7 +153,19 @@ Nextcloud 提供了 [Nextcloud Security Scan](https://scan.nextcloud.com/)，可
 查找 config.php 位置，进而修改
 
 ```shell
-find /var -name "config.php"`
+find /var -name "config.php"
+```
+
+`server1.example.com` 是服务所在域名，修改为
+
+```php
+'trusted_domains' =>
+  array (
+   0 => 'localhost',
+   1 => 'server1.example.com',    
+   2 => '192.168.1.50',
+   3 => '[fe80::1:50]',
+),
 ```
 
 或者使用环境变量，Start the container with:

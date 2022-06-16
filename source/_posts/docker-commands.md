@@ -51,7 +51,7 @@ docker rmi <IMAGE_ID>             # 删除对应镜像
 rm -rf miniflux-db                # 删除持久化数据，使用volumes:下面的名字
 ```
 
-## 在运行的容器内部执行命令
+## 容器内部执行命令
 
 非 docker 安装时，可以切换到某个目录，再执行这个应用特有的命令。但是，使用 docker 安装的应用，执行特定操作时，则需要用到 [`docker exec`](https://docs.docker.com/engine/reference/commandline/exec/)命令
 
@@ -117,3 +117,40 @@ docker exec -it ubuntu_bash bash
 docker exec -it -e VAR=1 ubuntu_bash bash     
 # Note that this environment variable will only be valid on the current Bash session. By default docker exec command runs in the same working directory set when container was created.
 ```
+
+## 切换位置
+
+切换到容器数据所在位置
+
+```shell
+docker container exec -it <container_ID> bash
+```
+
+之后就可以正常使用 `cd`
+
+## 从容器内部复制文件夹到容器外面
+
+```shell
+docker cp <container_ID>:/file/path/within/container /host/path/target
+```
+
+## identify which container owns which overlay directory
+
+`overlay` 位于 `/var/lib/docker/overlay`，用于存放 container 的数据文件
+
+一个讲容器和目录对应起来的运行命令
+
+```
+docker inspect $(docker ps -qa) |  jq -r 'map([.Name, .GraphDriver.Data.MergedDir]) | .[] | "\(.[0])\t\(.[1])"'
+```
+
+输出子文件夹名称和对应的 contianer name
+
+> 部分命令说明：
+>
+> ```
+> docker inspect $(docker ps -qa)   # Display full docker details.
+> jq -r   # Parse json and output regular strings
+> map([.Name, .GraphDriver.Data.MergedDir])   # For each element in the original array, find the `Name` and the overlay `MergedDir`.
+> "\(.[0])\t\(.[1])"  # Output the first two elements of the array.
+> ```
