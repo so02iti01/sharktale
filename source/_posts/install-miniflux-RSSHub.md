@@ -9,11 +9,13 @@ tags:
 - docker-compose
 ---
 
-> 安装部分参考 [Docker 快速搭建 Miniflux + RSSHub ](https://www.jkg.tw/p3246/)，讲解细致，全程复制粘贴就可以完成！所以不需要我多写啦。
-
 这里主要想记录一下使用 `miniflux + RSSHub` 进行 `RSS订阅` 的笔记~
 
+2022/6/21：新增 Miniflux 控制台命令(docker version)
+
 ## docker-compose.yml
+
+安装部分参考 [Docker 快速搭建 Miniflux + RSSHub ](https://www.jkg.tw/p3246/)，讲解细致，全程复制粘贴就可以完成！所以不需要我多写啦。
 
 创建目录
 
@@ -114,6 +116,27 @@ docker-compose exec miniflux /usr/bin/miniflux -create-admin
 > * 如果忘记了 miniflux 管理员帐号密码，就这个命令重新建立一个管理员帐号，去网页里管理
 
 之后用 nginx / apache / caddy 等，设置 reverse proxy
+
+## miniflux Command Line Usage (docker-compose version)
+
+```bash
+docker exec -it <container-name> /usr/bin/miniflux <your-command>
+```
+
+> * <container-name> 使用 `docker container ls`  命令查询
+> * <your-command> 是可用命令
+
+<your-command> [可以替换为](https://miniflux.app/docs/cli.html)
+
+```bash
+-version               # 输出 miniflux 版本号
+-info                  # 输出 miniflux 编译信息
+-debug                 # 开启 debug 模式
+-create-admin          # 创建用户，并设置为管理员
+-reset-password        # 重置密码
+-reset-feed-errors     # 重置所有出错的 feed
+```
+
 
 ## 一般内容的 RSS 订阅
 

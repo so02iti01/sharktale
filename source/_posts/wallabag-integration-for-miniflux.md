@@ -11,6 +11,8 @@ tags:
 
 `wallabag ` 的优点是可以下载并保存网页，防止链接失效无法访问收藏的内容。`wallabag ` 有一些抓取不全的问题，用作 `miniflux` 的插件就还好。本文说明了如何使用 docker-compose 安装 `wallabag` ，以及在 `miniflux` 中使用 `wallabag`。
 
+2022/6/21：新增一些 wallabag console command，如果忘记了密码，可以用命令直接修改
+
 <!--more-->
 
 ## 安装 wallabag (docker-compose)
@@ -160,6 +162,8 @@ sudo systemctl start caddy.service
 
 ## 管理 MariaDB
 
+`（其实用 wallabag 自带的命令，会更简单，下一节有写）`
+
 进入 `MariaDB`
 
 ```mariadb
@@ -198,3 +202,42 @@ SHOW COLUMNS FROM mytable FROM mydb;
 SHOW COLUMNS FROM mydb.mytable;
 ```
 
+##  Console Commands (docker-compose version)
+
+>  [wallabag has a number of CLI commands](https://doc.wallabag.org/en/admin/console_commands.html#console-commands) to manage a number of tasks. 
+
+这里写出针对 docker-compose 安装方式的命令使用，格式是： 
+
+```bash
+docker exec -t <container-name> /var/www/wallabag/bin/console <your-command> --env=prod --no-interaction
+```
+
+> * <container-name> 是 wallabag 容器的名字，如果记不清了，使用 `docker container ls`  命令查询
+> * <your-command> 就是[官方说明文档](https://doc.wallabag.org/en/admin/console_commands.html#console-commands)里，针对非 docker-compose 安装方式的命令
+> * help <Your-command> 是查询命令的详细用法
+
+一些重要的可用 <Your-command>：
+
+```bash
+assets:install   # May be helpful if assets are missing.
+cache:clear     # should be run after each update (included in make update).
+doctrine:migrations:status     # Output the status of your database migrations.
+fos:user:activate      # 手动激活用户
+fos:user:change-password  # 修改用户密码
+fos:user:create  # 创建用户
+fos:user:deactivate  # 冻结用户
+fos:user:demote  # 移除用户角色，通常是不再设为管理员
+fos:user:promote  # 添加用户角色，通常是设为管理员
+rabbitmq:*         # May be useful if you're using RabbitMQ.
+wallabag:clean-downloaded-images    # Cleans downloaded images which are no more associated to an entry
+wallabag:clean-duplicates   # Removes all entry duplicates for one user or all users
+wallabag:entry:reload      # Reload entries.
+wallabag:export    # Exports all entries for a user. You can choose the output path of the file.
+wallabag:generate-hashed-urls   # Generates hashed urls for each entry
+wallabag:import         # Import entries to different formats to a user account.
+wallabag:import:redis-worker        # 添加 Redis worker
+wallabag:install         # (re)Install wallabag
+wallabag:tag:all      # Tag all entries for a user using his/her tagging rules.
+wallabag:user:show   # Shows the details for a user.
+wallabag:user:list   # 列出存在的所有用户
+```
